@@ -1,0 +1,6 @@
+widget = {
+	 environment = portrait
+	 portrait = { Character.Custom('zzz_cam_camera_event_center') }
+	 camera = camera_event_center
+	 dynamic = ActivityWindowCharacter.GetCamera
+}

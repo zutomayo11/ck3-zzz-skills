@@ -1,0 +1,7 @@
+zzz_camera_event_center = {
+	 camera = {
+		 position_node = { default = zzz_cam_torso }
+		 look_at_node = { default = zzz_cam_head }
+		 nested = { note = "brace } inside quote" }
+	 }
+}

@@ -1,0 +1,28 @@
+# Local workspaces and generated Python files
+.superpowers/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Local credentials and environment settings
+.env
+.env.*
+*.pem
+*.key
+
+# External project reports, backups and generated packages
+/reports/
+/backups/
+/dist/
+node_modules/
+*.mesh
+*.dds
+*.blend
+*.fbx
+
+# Operating system metadata
+.DS_Store
+Thumbs.db
+Desktop.ini

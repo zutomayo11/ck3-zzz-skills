@@ -1,0 +1,35 @@
+{
+  "schema": "ck3-portrait-camera/report-v1",
+  "candidate": {
+    "version": "",
+    "path": "",
+    "sha256_or_receipt": "",
+    "enabled_order": []
+  },
+  "baseline": {
+    "normal_entries": [],
+    "user_observations": [],
+    "frozen_inputs": [],
+    "hypothesis": "",
+    "change_allowlist": [],
+    "rejected_hypotheses": []
+  },
+  "static_chain": {
+    "definitions": {"status": "NOT_TESTED", "evidence": []},
+    "gui_calls": {"status": "NOT_TESTED", "evidence": []},
+    "routing_returns": {"status": "NOT_TESTED", "evidence": []},
+    "overrides_and_load_order": {"status": "NOT_TESTED", "evidence": []}
+  },
+  "resources": {"status": "NOT_TESTED", "evidence": [], "mesh": [], "entity": [], "skeleton": [], "animation": [], "attachments": []},
+  "blender": {"status": "NOT_TESTED", "engine": "", "device": "", "backend": "", "evidence": []},
+  "runtime": {"status": "NOT_TESTED", "entries": []},
+  "regression": {"status": "NOT_TESTED", "entries": []},
+  "coverage": {
+    "definition_completeness": {"status": "NOT_TESTED", "numerator": null, "denominator": null, "value": null, "basis": "独立相机定义清单，不等于调用或运行正确"},
+    "static_integration": {"status": "NOT_TESTED", "numerator": null, "denominator": null, "value": null, "basis": "按实际控件/API/slot/分支计算"},
+    "offline_composition": {"status": "NOT_TESTED", "numerator": null, "denominator": null, "value": null, "basis": "按角色/皮肤/用途/姿态/帧记录 Blender 图审"},
+    "runtime_acceptance": {"status": "NOT_TESTED", "numerator": null, "denominator": null, "value": null, "basis": "按 CK3 实际入口和候选证据计算"}
+  },
+  "blocked_scope": [],
+  "invalidated_evidence": []
+}

@@ -1,0 +1,78 @@
+{
+  "schema": "ck3-portrait-camera/behavior-scenarios-v2",
+  "validation_method": "人工决策审查；自动测试仅校验资料结构，不模拟代理行为或游戏验收。",
+  "scenarios": [
+    {
+      "id": "camera_action_alias",
+      "request": "同一举杯动作在两个机位出现",
+      "required_decision": "从调用点形成两对相机/动作别名，分别直接调用私有相机，保留普通 GetCamera 回退",
+      "expected_status": "NOT_TESTED"
+    },
+    {
+      "id": "all_event_slots",
+      "request": "宴会左位恢复但中位卢西娅背向",
+      "required_decision": "核对中位 sick_stomach/center_pointing_left 的原设计和覆盖优先级，不统一转正面",
+      "expected_status": "NOT_TESTED"
+    },
+    {
+      "id": "native_fallback",
+      "request": "原版人物或 3D 关闭后取景变化",
+      "required_decision": "检查人物作用域、画像组与条件分支，保留原相机/动作，不改原版资源",
+      "expected_status": "NOT_TESTED"
+    },
+    {
+      "id": "hidden_contract",
+      "request": "五骨参考正常，36 骨角色异常",
+      "required_decision": "不减骨数，先查实际调用、head 预加载、节点归属，再解码绑定及完整动态挂接",
+      "expected_status": "NOT_TESTED"
+    },
+    {
+      "id": "state_occurrence",
+      "request": "同名随机动作存在不同 body clip",
+      "required_decision": "按角色/状态/重复序号配对，保留权重及 next_state；缺状态即失败，不能 idle 掩盖",
+      "expected_status": "NOT_TESTED"
+    },
+    {
+      "id": "load_unknown_group",
+      "request": "载入自动镜头遇到新增画像组",
+      "required_decision": "不沿用未验证 default，不虚构 SaveGameItem 人物接口；审计新组，保护 human/anime，未知阻塞",
+      "expected_status": "NOT_TESTED"
+    },
+    {
+      "id": "court_single_entry",
+      "request": "悬停补丁后原版人物变形",
+      "required_decision": "先检查共享 Shader，单一 PDX_MAIN、原版分支实际编译对照；脸/眼/道具程序保持，画面仍待测",
+      "expected_status": "NOT_TESTED"
+    },
+    {
+      "id": "workshop_boundary",
+      "request": "本地节点名称迁移",
+      "required_decision": "仅本地授权 Core/Pack 范围；解析二进制名称字段，保护数值与轨道，工坊只读",
+      "expected_status": "NOT_TESTED"
+    },
+    {
+      "id": "debug_panel",
+      "request": "正式保留诊断标签",
+      "required_decision": "仅 Core 根面板 InDebugMode 控制背景和文字，正常模式不显示，Pack 无副本",
+      "expected_status": "NOT_TESTED"
+    },
+    {
+      "id": "known_good_route",
+      "request": "私有骑乘恢复后源头 getter 再次失败",
+      "required_decision": "保留成功直接调用，追别名传播和覆盖优先级，不退回已否定路径",
+      "expected_status": "NOT_TESTED"
+    },
+    {
+      "id": "load_only",
+      "request": "只修载入且游戏内正常",
+      "required_decision": "冻结完整调用与资源链，仅改专用入口，检查普通人物和正常入口",
+      "expected_status": "NOT_TESTED"
+    },
+    {
+      "id": "no_runtime",
+      "request": "静态测试全通过但没有游戏截图",
+      "required_decision": "静态通过不证明引擎命中，按入口保留 NOT_TESTED，用户反馈不外推",
+      "expected_status": "NOT_TESTED"
+    }
+  ]
+}

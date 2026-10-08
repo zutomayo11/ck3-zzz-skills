@@ -1,0 +1,4 @@
+zzz_cam_camera_event_center = {
+	 type = character
+	 text = { trigger = { yes = yes } localization_key = zzz_camera_event_center }
+}
