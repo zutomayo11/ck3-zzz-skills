@@ -16,15 +16,15 @@ python -X utf8 -m unittest test_faction_opinions test_tuning_ui test_local_regis
 
 缓存更新必须等启动器安全关闭后备份，只改已核实的本地行，保留工坊条目、播放集及其他字段。运行中不并发写数据库；关闭被拒或无法确认进程身份时完成其余文件同步，记录缓存未同步及重启后核对事项，不冒称已退出或已同步。内容修复不授权改订阅/播放集或终止未知进程。
 
-## 内置 绝区零绝区私有相机 与现行维护
+## 内置 ZZZ Core 与现行维护
 
-角色包版本来自 settings.json；embedded_zzz_core.source_version=0.6.0 是导入来源版本，不是另一个正式发布包版本。`settings.json.core` 仍指二向箔参考库，不可改指 绝区零绝区私有相机。
+角色包版本来自 settings.json；embedded_zzz_core.source_version=0.6.0 是导入来源版本，不是另一个正式发布包版本。`settings.json.core` 仍指二向箔参考库，不可改指 ZZZ Core。
 
-权威源为 `core_integration/files` 与 manifest.json，`zzz_core_merge.py` 校验来源哈希和许可覆盖，`build_mod.py` 在角色包生成末尾合并。原生菜单先由 native_menu_merge.py 合并，绝区零绝区私有相机 再覆盖两份已登记菜单；核对最终 build_manifest.json 的有效来源。修改共享 绝区零绝区私有相机 需同步来源、声明的哈希及候选，不能只改输出或只刷新哈希绕过语义验证。
+权威源为 `core_integration/files` 与 manifest.json，`zzz_core_merge.py` 校验来源哈希和许可覆盖，`build_mod.py` 在角色包生成末尾合并。原生菜单先由 native_menu_merge.py 合并，ZZZ Core 再覆盖两份已登记菜单；核对最终 build_manifest.json 的有效来源。修改共享 ZZZ Core 需同步来源、声明的哈希及候选，不能只改输出或只刷新哈希绕过语义验证。
 
 当前运行维护使用 `C:/Python312/python.exe -X utf8 -B D:/CK3-mod/miyabi_3d_mod_project/scripts/merge_zzz_core_role_100.py verify`，同入口 restore/recover 按本轮收据精确处理。上方完整 build_mod.py 命令仅为生成器参考；局部修复先做候选及必要验证，不直接覆盖现装成品。
 
-四个正式模型包依赖角色包，不依赖独立 绝区零绝区私有相机。独立测试顺序是角色包 → zzz core legacy → pack2-core-test；仍加载角色包，由 legacy 提供同路径 绝区零绝区私有相机。详细基线、加载范围和恢复边界见[共用规范](../../ck3-zzz-3d-mod/references/zzz-core-pack4-workflow.md)，不默认切换播放集或改写 legacy。
+五个正式模型包依赖角色包，不依赖独立ZZZ Core。独立测试顺序是角色包 → zzz core legacy → pack2-core-test；仍加载角色包，由Legacy提供其实际同路径Core覆盖。详细基线、加载范围和恢复边界见[共用规范](../../ck3-zzz-3d-mod/references/zzz-core-pack4-workflow.md)，不默认切换播放集或改写Legacy。
 
 ## 开局初始化与说明（0.8起）
 

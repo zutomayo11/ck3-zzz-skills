@@ -1,11 +1,11 @@
 {
-  "schema": "ck3-portrait-camera/behavior-scenarios-v2",
+  "schema": "ck3-portrait-camera/behavior-scenarios-v3",
   "validation_method": "人工决策审查；自动测试仅校验资料结构，不模拟代理行为或游戏验收。",
   "scenarios": [
     {
-      "id": "camera_action_alias",
-      "request": "同一举杯动作在两个机位出现",
-      "required_decision": "从调用点形成两对相机/动作别名，分别直接调用私有相机，保留普通 GetCamera 回退",
+      "id": "current_event_activity_contract",
+      "request": "同一动作在多个特殊事件机位出现，活动也请求该动作",
+      "required_decision": "按当前交付区分原版特殊事件调用与活动center/有限定向取景；普通typed GetCamera保持，不复建旧420别名",
       "expected_status": "NOT_TESTED"
     },
     {
@@ -59,7 +59,7 @@
     {
       "id": "known_good_route",
       "request": "私有骑乘恢复后源头 getter 再次失败",
-      "required_decision": "保留成功直接调用，追别名传播和覆盖优先级，不退回已否定路径",
+      "required_decision": "按最新交付保留当前有效直接分支，核对实际请求与覆盖；旧探针成功不支持重新安装已退役别名体系",
       "expected_status": "NOT_TESTED"
     },
     {
@@ -72,6 +72,60 @@
       "id": "no_runtime",
       "request": "静态测试全通过但没有游戏截图",
       "required_decision": "静态通过不证明引擎命中，按入口保留 NOT_TESTED，用户反馈不外推",
+      "expected_status": "NOT_TESTED"
+    },
+    {
+      "id": "weighted_default",
+      "request": "default已指向Galgame，但无手选仍播放性格姿势",
+      "required_decision": "default只是回退，按真实有序权重和实际GUI类别检查；保留特殊状态和既有手选，不仅测默认字段",
+      "expected_status": "NOT_TESTED"
+    },
+    {
+      "id": "static_map_pose",
+      "request": "共享小头像已跟随姿势，地图标记仍不变",
+      "required_decision": "地图widget独立核查动作参数并使用展示选择器，GetPortrait保持静态，不改变相机或全局缓存",
+      "expected_status": "NOT_TESTED"
+    },
+    {
+      "id": "native_slots",
+      "request": "新增torso兼容槽后道具或表情异常",
+      "required_decision": "零基torso2/75与head22分别解码，计入挂接链并同步索引/时钟，拒绝重复插骨，不猜骨名",
+      "expected_status": "NOT_TESTED"
+    },
+    {
+      "id": "expected_accessories",
+      "request": "道具引用均有效，但骑射没有马",
+      "required_decision": "对照原版预期附件全集与文化/装备/外观条件，不能只检查已有引用闭包",
+      "expected_status": "NOT_TESTED"
+    },
+    {
+      "id": "visible_mount_contact",
+      "request": "马已出现在图中，但人物悬空且理发店同动作异常",
+      "required_decision": "分离取景与接触，按实际蒙皮骑乘支撑区域/战车脚底校准必要平移，保持地面附件世界变换，不套骨盆差",
+      "expected_status": "NOT_TESTED"
+    },
+    {
+      "id": "death_gui_entry",
+      "request": "死亡片段齐全，真正死者主面板仍Galgame",
+      "required_decision": "追实际GUI API/类别与画像/状态闭包；核对115死亡分支，避免全局重绑旧dead，并保留游戏NOT_TESTED",
+      "expected_status": "NOT_TESTED"
+    },
+    {
+      "id": "dead_outfit_scope",
+      "request": "死者外观条件has_variable反复报错",
+      "required_decision": "变量作用域是独立待修问题；不能假设AND短路、猜死前换装或以入口修复宣称外观已修",
+      "expected_status": "NOT_TESTED"
+    },
+    {
+      "id": "debug_widget_missing",
+      "request": "打开debug但活动没有诊断",
+      "required_decision": "先查控件是否删除与队列分支，根InDebugMode控制背景文字；标签只说明请求，不证明马生成或最终机位",
+      "expected_status": "NOT_TESTED"
+    },
+    {
+      "id": "council_culture",
+      "request": "理发店间谍拿匕首，内阁重复东亚姿态",
+      "required_decision": "先对照原版文化/任务选择；查找秘密优先偷听，手选绕过分支不说明资源缺失，不强制改风格",
       "expected_status": "NOT_TESTED"
     }
   ]

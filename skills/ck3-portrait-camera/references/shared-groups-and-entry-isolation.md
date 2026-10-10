@@ -1,6 +1,6 @@
 # 共享画像组、动态镜头与单入口隔离
 
-新 Pack 优先读取[绝区零绝区私有相机 工作规范](../../ck3-zzz-3d-mod/references/zzz-core-pack4-workflow.md)。本页适用于既有包的共享映射维护，Test 沿用正式画像组，或头像/地图/事件小像需分别修复时读取。本页从 Pack3Test 0.1.0 与 Pack1Test 013/014 提炼规则；个例骨数、偏移和版本不作为通用配置。
+新 Pack 优先读取[ZZZ Core 工作规范](../../ck3-zzz-3d-mod/references/zzz-core-pack4-workflow.md)。本页适用于既有包的共享映射维护，Test 沿用正式画像组，或头像/地图/事件小像需分别修复时读取。本页从 Pack3Test 0.1.0 与 Pack1Test 013/014 提炼规则；个例骨数、偏移和版本不作为通用配置。
 
 ## 公共 group lookup 不受私有 capability 完全隔离
 
@@ -12,7 +12,7 @@ Pack3Test 与正式 Pack3 共用画像组。初期 `*_zzz_event_head_mid/camera_
 
 ## 动态入口保留原调用链
 
-活动/旅行不仅使用 event_center。逐项记录 GUI 控件、slot、environment、`ActivityWindowCharacter.GetCamera` 实际可能返回的相机、骑乘/阶段变体及其画像组映射。维护这些历史包时保留其已验证契约；新 绝区零绝区私有相机 路线按相机/动作别名直接调用私有相机，普通分支保留 GetCamera，环境与原调用点语义保持。
+活动/旅行不仅使用 event_center。逐项记录 GUI 控件、slot、environment、`ActivityWindowCharacter.GetCamera` 实际可能返回的相机、骑乘/阶段变体及其画像组映射。以上是历史包证据；当前ZZZ Core特殊事件保留原版调用，活动采用私有center/普通typed GetCamera及有限定向取景增量，不能从旧案例复建别名方案。环境与原动作选择语义保持。
 
 单个 event_center 的 Blender 图只能代表该相机的几何；不能证明完整活动返回集合、内阁职位或引擎随机动作正常。左右中事件相机也要各查实际资源，不能只对照中心镜头。缺退出片段不能拿 idle 冒充退出采样。
 
@@ -47,3 +47,5 @@ Pack3 原 570 图在 native mapping 修正前生成；最终模型清单相同�
 - [Pack1Test 014 交付](D:/CK3-mod/miyabi_3d_mod_project/reports/pack1_test_014/delivery.md)、[距离和平移证据](D:/CK3-mod/miyabi_3d_mod_project/reports/pack1_test_014/calibration_evidence.json)。
 
 共享 Camera 会继续升级，历史报告仅证明其绑定版本。用当前 settings、登记与交付收据重新确定基线；不让旧完整 Camera 清单覆盖后续其他 Pack 更新。
+
+当前112原版槽位兼容会改变历史节点/映射契约，维护新交付须按[当前共用规范](../../ck3-zzz-3d-mod/references/zzz-core-pack4-workflow.md#隐藏骨架与原版兼容槽)解码实际资源；本页旧组映射及图像不代表115全部入口已验收。

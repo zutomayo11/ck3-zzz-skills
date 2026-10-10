@@ -10,4 +10,8 @@
 
 项目历史 `pack2_camera_test` 资料显示，逐角色叶节点和 head/torso 所属载体曾影响前端结果；这是本项目候选的历史证据，不能推广成 CK3 通用机制。使用时以当前候选的 asset、骨序和实机结果为准。
 
-当前 36 槽基础布局及角色特有扩展、head 预加载、状态重复序号和道具 T/Q/S 规则见[共用契约](../../ck3-zzz-3d-mod/references/zzz-core-pack4-workflow.md#隐藏骨架五骨参考与-36-骨实现)，不以历史骨数或绑定姿态替代当前解码。
+当前 36 槽基础布局及角色特有扩展、head 预加载、状态重复序号和道具 T/Q/S 规则见[共用契约](../../ck3-zzz-3d-mod/references/zzz-core-pack4-workflow.md#隐藏骨架与原版兼容槽)，不以历史骨数或绑定姿态替代当前解码。
+
+## 原版兼容与支撑面
+
+当前torso零基2/75、head22槽按实际祖先挂接验证，插槽迁移保护原通道并同步Shader时钟，拒绝重复适配。取景高度与人体/马接触是不同约束：马入镜后仍悬空需蒙皮支撑面求解，不能再用相机补偿或直接套骨盆差。完整规则见[接触与取景](../../ck3-zzz-3d-mod/references/mount-contact-and-framing.md)。

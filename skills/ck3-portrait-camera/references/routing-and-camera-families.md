@@ -10,10 +10,12 @@
 
 ## 相机族原则
 
-`body`、`head`、`shoulders`、`torso`、`event_center`、`combat_window`、活动动态 getter 只有在源码映射和验证证据都支持时才能复用。事件原本要求侧身、背向、跪姿或对视时不能一律改正面。活动保留原相机/动作选择语义：目标角色按隐藏别名直接调用私有相机，普通人物保留 `GetCamera`；GUI 接入数量不能代替事件脚本、`triggered_animation`、活动定义中的 `camera =` 审计。
+`body`、`head`、`shoulders`、`torso`、`event_center`、`combat_window`、活动动态 getter 只有在源码映射和验证证据都支持时才能复用。事件原本要求侧身、背向、跪姿或对视时不能一律改正面。当前活动保留原动作选择，接入人物使用私有center，普通人物保留typed `GetCamera`；有限骑乘/战车取景例外按最新有效源码展开。特殊事件保留原版相机调用，GUI数量不能代替逐位及嵌套覆盖审计；旧别名方案已退役。
 
 静态调用清单建议字段：`entrypoint`, `gui_file`, `widget`, `display_scope`, `slot`, `api_kind`, `environment`, `animation`, `source_camera`, `route_key`, `condition`, `expected_camera_id`, `definition_file`, `position_node`, `look_at_node`, `entity`, `skin`, `status`, `evidence`。动态和静态推导分别保存；“预期返回”不是“实际使用”。
 
 ## 覆盖检查
 
-比较原版 GUI、当前 绝区零绝区私有相机 GUI、目标 Pack 的同名文件和加载顺序；解析完整嵌套块，不用“匹配到第一个右括号”的正则代替块解析。相同相机名、文件存在或旧接口前缀不是删除/改名依据。生成器展开的共享模板要保留角色局部参数。
+比较原版 GUI、当前 ZZZ Core GUI、目标 Pack 的同名文件和加载顺序；解析完整嵌套块，不用“匹配到第一个右括号”的正则代替块解析。相同相机名、文件存在或旧接口前缀不是删除/改名依据。生成器展开的共享模板要保留角色局部参数。
+
+静态头像、地图标记、生活方式和已故主面板API不可混用。地图114是静态动作参数补齐；115死亡分支明确EvenIfDead/dead但并未改所有死者小头像，见[展示入口](../../ck3-zzz-3d-mod/references/portrait-display-and-death.md)。

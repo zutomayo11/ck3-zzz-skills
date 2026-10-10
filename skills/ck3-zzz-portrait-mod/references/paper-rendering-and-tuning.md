@@ -1,6 +1,6 @@
 # 纸片人消隐、音擎与混合调频
 
-只在相应问题出现时读取对应章节。工程为 `D:/CK3-mod/zzz_mod_project`，生成器和测试位于工程根目录，不假定存在 `scripts/` 或 `tests/`。当前角色包 1.0.0（内置 绝区零绝区私有相机）、四个正式3D模型包 2.0.1，实际版本和角色/音擎数量以设置及manifest为准。开局提示及双语维护见 [构建与登记](build-and-registration.md)，不在此重复规则。
+只在相应问题出现时读取对应章节。工程为`D:/CK3-mod/zzz_mod_project`，生成器和测试位于工程根，不假定存在scripts或tests。当前版本/角色/音擎数量以设置和manifest为准，快照见[共用规范](../../ck3-zzz-3d-mod/references/zzz-core-pack4-workflow.md)。开局提示及双语维护见[构建与登记](build-and-registration.md)，不重复相机/展示规则。
 
 ## 纸片人前面的黑模型
 

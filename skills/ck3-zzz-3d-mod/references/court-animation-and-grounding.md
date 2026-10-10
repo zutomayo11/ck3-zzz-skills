@@ -14,13 +14,19 @@
 
 用户明确选择沿用原版随机场景，不按职位强制姿势或站位。原版 `gfx/court_scene/character_roles/00_default_roles.txt` 可给内阁成员分配交谈等随机角色；位置来自 scene_settings。不能仅凭“军事总管未拿剑”判定绑定错。静态截图不能证明是否播放动画，必要时先问清实际动态表现。读取日志或存档前核对其时间和启用包；旧 last_save 不代表截图中的当前场景，二进制存档不能用 Get-Content 当文本读。
 
-## 本人待机覆盖场景动作（1.0.3）
+## 内阁任务与文化分支
+
+内阁portrait_council使用CouncilPositionType.GetPortraitAnimation，理发店手选可能直接指定普通职位动作而绕过任务/文化条件。间谍“查找秘密”先选偷听，东亚服饰图形文化再选东亚间谍动作，其余走普通匕首；动作不同或重复一套循环不等于缺资源。原版定义的东亚间谍道具是瓶子，用户外观描述不直接作为资源名。对照当前游戏中文化和任务，不按Pack划分正常/异常。证据见工程reports/zzz_council_diagnostic_20261009；该轮未改运行资源。
+
+骑乘/战车的接触位移另读[接触约束](mount-contact-and-framing.md)，本页旧宫廷脚底算法不得直接覆盖坐骑114的已安装动画。
+
+## 本人待机覆盖场景动作（1.0.3历史案例）
 
 本包3D角色仍保留纸片人身份。共享 animations.txt 的 `default.hm_idle` 原本只检查 `waifu_portrait_trigger = yes`，权重增加32767并请求 head/torso 的 dead。实体 dead 为旧菜单兼容映射到本人 Galgame_Idle，因此需要同时检查默认回退，不能只验证专属动画分支和文件存在。
 
 `scripts/court_animation_fallback.py` 给 hm_idle 增加 `NOT = { zzz_3d_animated_portrait_trigger = yes }`，按实际本包3D ethnicity 排除回退。不要全局改 waifu_portrait_trigger、角色身份、真正死亡类别或旧菜单兼容状态。
 
-现行正式包以角色包内置 绝区零绝区私有相机 的包可用性、身份和实际画像分流为准，不重新安装下列旧桥。历史旧桥曾由各包共享 `common/scripted_triggers/000_zzz_court_animation_defaults.txt`，对缺失的包默认返回 false；各包后加载的 `zzz_court_animation_pack*.txt` 仅引用本包存在的 ethnicity。共享接口实改时保持共享文件字节一致，并检查受影响启用组合、关闭3D后的纸片人及其他角色；数量从当前包清单推导，不固定三包七组合。接口未变不重复检查旧组合。`tests/test_court_animation_fallback.py` 还检查幂等和原规则保留。
+现行正式包以角色包内置 ZZZ Core 的包可用性、身份和实际画像分流为准，不重新安装下列旧桥。历史旧桥曾由各包共享 `common/scripted_triggers/000_zzz_court_animation_defaults.txt`，对缺失的包默认返回 false；各包后加载的 `zzz_court_animation_pack*.txt` 仅引用本包存在的 ethnicity。共享接口实改时保持共享文件字节一致，并检查受影响启用组合、关闭3D后的纸片人及其他角色；数量从当前包清单推导，不固定三包七组合。接口未变不重复检查旧组合。`tests/test_court_animation_fallback.py` 还检查幂等和原规则保留。
 
 1.0.3 的离线测试证明存在并排除了上述条件冲突；随后截图可见莱卡恩采用了交谈姿势，但未取得运行时跟踪证明所有宫廷类别的具体继承路径。不要把截图或条件求值扩大为全场景实测结论。
 
@@ -42,7 +48,7 @@ mesh 辅助骨的逆绑定对应该支撑面；动画辅助轨道为 `inverse(na
 
 ## 历史算法与局部验证入口
 
-维护采用旧流水线的包时，按其收据核对 `scripts/build_faction_packs.py` 的阶段顺序；新 绝区零绝区私有相机 工作线按共用规范定向生成，只向这些阶段交给受影响包/角色：必要时先还原目标已有辅助节点，再完成资源集成、菜单镜头、道具和材质处理，最后运行 court_grounding 和 court_animation_fallback。不能为制作新包调用遍历旧包的全量 build，也不还原或重施未改旧包的地面节点。后续原生重导出不能视为最终发布包。court_grounding 先临时生成并回读当前目标的全部受影响资源，再替换成品；只备份将实际变更的文件及相关报告。
+维护采用旧流水线的包时，按其收据核对 `scripts/build_faction_packs.py` 的阶段顺序；新 ZZZ Core 工作线按共用规范定向生成，只向这些阶段交给受影响包/角色：必要时先还原目标已有辅助节点，再完成资源集成、菜单镜头、道具和材质处理，最后运行 court_grounding 和 court_animation_fallback。不能为制作新包调用遍历旧包的全量 build，也不还原或重施未改旧包的地面节点。后续原生重导出不能视为最终发布包。court_grounding 先临时生成并回读当前目标的全部受影响资源，再替换成品；只备份将实际变更的文件及相关报告。
 
 相关验证在正式工程内执行，以下是可选验证集合；只选择当前异常或新增角色涉及的模块，并确认实际目标筛选。没有二进制变化不跑全包 `--binary-check`；既有测试固定检查未改旧人时不为通过它而重建旧数据。不必为技能文档更新重建 Mod：
 

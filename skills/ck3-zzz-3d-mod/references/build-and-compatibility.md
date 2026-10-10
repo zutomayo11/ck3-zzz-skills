@@ -4,7 +4,7 @@
 
 ## 工程入口
 
-工程根为 `D:/CK3-mod/miyabi_3d_mod_project`。当前 绝区零绝区私有相机/Pack 路径、独立配置和定向入口见[共用工作规范](zzz-core-pack4-workflow.md)。下列主包/旧阵营算法仅用于明确维护对应历史方案，不是新包默认构建命令；Blender 路径由实际配置确认。
+工程根为 `D:/CK3-mod/miyabi_3d_mod_project`。当前 ZZZ Core/Pack 路径、独立配置和定向入口见[共用工作规范](zzz-core-pack4-workflow.md)。下列主包/旧阵营算法仅用于明确维护对应历史方案，不是新包默认构建命令；Blender 路径由实际配置确认。
 
 仅星见雅动作变化且 mesh/材质已经验证时：
 
@@ -24,23 +24,23 @@ python -X utf8 scripts/validate_export.py
 
 ## 旧阵营方案的收尾与发布资料
 
-旧阵营方案曾使用四个 `packs/pack*` 包，其范围按对应配置核对。新包采用 内置 绝区零绝区私有相机／正式模型包，不能以旧 `build_faction_packs.py` 遍历全包收尾。仅对目标角色执行所需处理，受影响共享分支定向合入；独立性核对 Shader/贴图闭包、缺席依赖及实际加载来源，不能只看相机定义。
+旧阵营方案曾使用四个 `packs/pack*` 包，其范围按对应配置核对。新包采用 内置 ZZZ Core／正式模型包，不能以旧 `build_faction_packs.py` 遍历全包收尾。仅对目标角色执行所需处理，受影响共享分支定向合入；独立性核对 Shader/贴图闭包、缺席依赖及实际加载来源，不能只看相机定义。
 
-事件/活动按[调用点验证](portrait-routing-and-validation.md)处理：目标人物通过事件叶分支或活动相机/动作别名直接调用私有相机，普通人物保留原调用。不要执行旧 Recovery/finalize 链撤销已正确分流；保护既有 绝区零绝区私有相机 相机与资源哈希，不重烘模型。
+事件/活动按[调用点验证](portrait-routing-and-validation.md)处理：特殊事件保留原版调用，活动接入人物使用私有center，普通人物保留typed GetCamera，后续定向取景条件按现装源码核对。不恢复旧420别名，也不执行旧Recovery/finalize覆盖当前增量；保护未改相机及二进制资源。
 
 本机 SteamModsPublisher 固定读取包根目录 `thumbnail.png`，要求小于1 MiB，descriptor 的 picture 或启动器本地缩略图不能替代上传文件。每包使用对应阵营 logo；thumbnail.png、旧路径 cover.png 与源 logo 保持一致，descriptor 指向 thumbnail.png。本地修复不会自动更新已发布条目的远端封面。
 
-版本从目标包当前独立配置读取，同步 descriptor、本地登记和必要说明。内置 绝区零绝区私有相机／正式模型包 使用当前事务维护入口，保护存档、播放集、启动器数据库和其他包；历史登记/缩略图脚本不用于本轮默认安装。已有登记字段及工坊 ID 保持，不创建重复条目；仅技能更新不递增 Mod 版本。
+版本从目标包当前独立配置读取，同步 descriptor、本地登记和必要说明。内置 ZZZ Core／正式模型包 使用当前事务维护入口，保护存档、播放集、启动器数据库和其他包；历史登记/缩略图脚本不用于本轮默认安装。已有登记字段及工坊 ID 保持，不创建重复条目；仅技能更新不递增 Mod 版本。
 
-当前包可用性默认定义由角色包内置 绝区零绝区私有相机 的 `common/scripted_triggers/00_zzz_core_interfaces.txt` 提供，各正式包声明自身 `zzz_core_packN_available`。共享开关、菜单和同步由内置 绝区零绝区私有相机 维护，勿重新铺入旧 `000_zzz_3d_optional_*` 或独立 bridge 覆盖。只有接口实改时才检查受影响单包/组合；不因新增模型重复测试未变的旧控制系统。
+当前包可用性默认定义由角色包内置 ZZZ Core 的 `common/scripted_triggers/00_zzz_core_interfaces.txt` 提供，各正式包声明自身 `zzz_core_packN_available`。共享开关、菜单和同步由内置 ZZZ Core 维护，勿重新铺入旧 `000_zzz_3d_optional_*` 或独立 bridge 覆盖。只有接口实改时才检查受影响单包/组合；不因新增模型重复测试未变的旧控制系统。
 
-## 角色包内置 绝区零绝区私有相机 与模型包的边界
+## 角色包内置 ZZZ Core 与模型包的边界
 
-角色工程 `D:/CK3-mod/zzz_mod_project` 提供角色、身份特质、召唤、zzz_skin 及内置 绝区零绝区私有相机；模型工程提供各正式包资源。绝区零绝区私有相机 来源为角色工程 core_integration/files，源 manifest 和最终输出必须一致。以角色包 build_manifest.json、包独立配置及生成代码读取精确 trait/皮肤 index，不凭中文名称猜标识。
+角色工程 `D:/CK3-mod/zzz_mod_project` 提供角色、身份特质、召唤、zzz_skin 及内置 ZZZ Core；模型工程提供各正式包资源。ZZZ Core 来源为角色工程 core_integration/files，源 manifest 和最终输出必须一致。以角色包 build_manifest.json、包独立配置及生成代码读取精确 trait/皮肤 index，不凭中文名称猜标识。
 
-统一全局变量 `zzz_3d_disabled` 由内置 绝区零绝区私有相机 的身份/同步及开关效果读取；结合包可用性、本人身份、实际画像和既有禁用意图决定接入。检查现行 `zzz_core_identity.txt` 与 Pack2 旧标记迁移脚本，不能运行旧 build_compatibility 的全量控制生成覆盖它们。关闭/开启显示不重置身份、特质、皮肤变量或复制召唤人物。
+统一全局变量 `zzz_3d_disabled` 由内置 ZZZ Core 的身份/同步及开关效果读取；结合包可用性、本人身份、实际画像和既有禁用意图决定接入。检查现行 `zzz_core_identity.txt` 与 Pack2 旧标记迁移脚本，不能运行旧 build_compatibility 的全量控制生成覆盖它们。关闭/开启显示不重置身份、特质、皮肤变量或复制召唤人物。
 
-`native_outfits.py` 管历史星见雅两套衣服；`victoria_integration.py` 管对应历史角色的服装、分支和兼容。当前内置 绝区零绝区私有相机／正式模型包工作线的原生列表、手动优先/恢复跟随及特殊基因操作见[皮肤与装配](portrait-assembly-and-skins.md)，不能运行这些旧全量入口覆盖当前包。默认原皮/对应皮肤按 `zzz_skin` 自动选择。
+`native_outfits.py` 管历史星见雅两套衣服；`victoria_integration.py` 管对应历史角色的服装、分支和兼容。当前内置 ZZZ Core／正式模型包工作线的原生列表、手动优先/恢复跟随及特殊基因操作见[皮肤与装配](portrait-assembly-and-skins.md)，不能运行这些旧全量入口覆盖当前包。默认原皮/对应皮肤按 `zzz_skin` 自动选择。
 
 妄想天使用 `angels_integration.py` 与 `angels_outfit_sources.py`，保持维多利亚式 `zzz_skin → outfit → shared_pose_entity = torso`。右键切皮继续调用角色包原有 `zzz_skin_set_*`，不要在主包重复定义 scripted GUI 或靠切 ethnicity 刷新。自动 outfit 子 modifier 需 `normal_portrait_blocked_trigger = no`；否则被核心库普通肖像屏蔽规则挡住。衣服基因为 add，不能 replace。
 
@@ -50,7 +50,7 @@ python -X utf8 scripts/validate_export.py
 
 核心库完整 `gfx/portraits/portrait_animations/animations.txt` 有意覆盖：只插入本包所需类型分支，其余内容保留。更新核心库或纸片人后重读原文件再生成，别用陈旧副本覆盖别的角色。正式包只放统一开关，QA 决议和事件留在 `work/runtime_qa` 或显式隔离 runtime 下。
 
-公开原生待机菜单沿用 `native_idle_menu.py` 的算法，现行生效文本在角色包内置 绝区零绝区私有相机 来源及其合并输出。每种片段只注册一个 zzz_native_* 选项，保留逐角色可见规则、整行过滤和忽略隐藏项布局。修改相关规则须更新有效来源，不用历史菜单全量生成覆盖现行路由；详见[理发店原生动作与道具](barbershop-native-idles.md)。
+公开原生待机菜单沿用 `native_idle_menu.py` 的算法，现行生效文本在角色包内置 ZZZ Core 来源及其合并输出。每种片段只注册一个 zzz_native_* 选项，保留逐角色可见规则、整行过滤和忽略隐藏项布局。修改相关规则须更新有效来源，不用历史菜单全量生成覆盖现行路由；详见[理发店原生动作与道具](barbershop-native-idles.md)。
 
 表情不能只检查骨架 asset：二向箔核心库在默认分类中为纸片人赋予高权重 `dead` 姿势。星见雅及所有3D角色都需有独立肖像类型分支，同时检查 default.hm_idle 对实际3D外观的排除条件；仅有专属分支、原生表情数据和 entity state 并不能保证选中它。共同语义分类在 `portrait_emotions.py`，最终回退隔离由 `court_animation_fallback.py` 处理。新增角色后检查从CK3类别到实际动画文件的完整路径，详见 [宫廷动作选择](court-animation-and-grounding.md)。
 

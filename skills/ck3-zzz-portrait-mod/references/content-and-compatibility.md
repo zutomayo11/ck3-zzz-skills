@@ -45,4 +45,4 @@
 
 三个前置：二向箔核心库、婚舰通用库、女仆之国，应在角色包之前加载。工程 settings 中保存本机 core/maid/hunjian 路径。女仆选择页有意覆盖 `gui/window_maid_chosing.gui`，只插入绝区零入口；上游更新后重新检查源，勿覆盖无关内容。
 
-共享三维身份同步、开关和镜头接口已归入角色工程 core_integration；模型资源仍在 `D:/CK3-mod/miyabi_3d_mod_project`。zzz_skin 和角色身份保持。纸片人、调频和音擎任务不顺带修改 绝区零绝区私有相机 路由或模型资源。共同接口确需变化时检查实际引用及最终 VFS，按职责修改受影响来源，不自动重建另一包。正式与 legacy 测试组合见[共用规范](../../ck3-zzz-3d-mod/references/zzz-core-pack4-workflow.md)。
+共享三维身份同步、开关和镜头接口已归入角色工程 core_integration；模型资源仍在 `D:/CK3-mod/miyabi_3d_mod_project`。zzz_skin 和角色身份保持。纸片人、调频和音擎任务不顺带修改 ZZZ Core 路由或模型资源。共同接口确需变化时检查实际引用及最终 VFS，按职责修改受影响来源，不自动重建另一包。正式与 legacy 测试组合见[共用规范](../../ck3-zzz-3d-mod/references/zzz-core-pack4-workflow.md)。

@@ -1,20 +1,26 @@
 ---
 name: ck3-portrait-camera
-description: CK3 3D 角色肖像相机、隐藏定位节点及事件、活动、载入取景的诊断与回归。绝区零项目使用 角色包内置 绝区零绝区私有相机／正式模型包 调用契约；模型提取、贴图和完整动作制作由对应制作技能处理。
+description: CK3 3D 角色肖像相机、隐藏定位节点及事件、活动、载入取景的诊断与回归。绝区零项目使用 角色包内置 ZZZ Core／正式模型包 调用契约；模型提取、贴图和完整动作制作由对应制作技能处理。
 ---
 
-# CK3 肖像相机与 绝区零绝区私有相机 适配
+# CK3 肖像相机与 ZZZ Core 适配
 
 把相机工作分为入口调用、资源挂接和构图证据。先保护正常入口，在隔离候选中做有证据的最小修改；静态、离线图像与游戏验收分别记录。
 
 ## 当前工作线
 
-绝区零项目先读[内置 绝区零绝区私有相机／正式模型包工作规范](../ck3-zzz-3d-mod/references/zzz-core-pack4-workflow.md)。当前为角色包 1.0.0（内置 绝区零绝区私有相机 来源 0.6.0）和四正式模型包 2.0.1；正式相机源在角色工程 core_integration，运行输出在 zenless_zone_zero。独立 zzz core legacy 仅用于明确的测试组合，不能误改为正式相机源。实际 settings、成品、加载顺序和收据优先。
+绝区零项目先读[内置 ZZZ Core／正式模型包工作规范](../ck3-zzz-3d-mod/references/zzz-core-pack4-workflow.md)。2026-10-10圣人光环交付快照为角色包1.3.0、内置Core来源0.6.2、正式Pack1–5 2.0.5／Pack6 1.0.1；25个私有画像组。正式相机源在角色工程 core_integration，运行输出在 zenless_zone_zero。独立 zzz core legacy 仅用于明确的测试组合，不能误改为正式相机源。实际 settings、成品、加载顺序和收据优先。
 
-- 绝区零绝区私有相机 管理相机、分流、事件/活动覆盖和诊断；Pack 管理隐藏载体及动画。角色作用域、画像组和资源契约均满足后才进入私有路径。
-- 活动按“原相机＋原动作”别名直接调用对应私有相机；事件按实际人物位与有效覆盖适配。普通人物/未适配分支保留原调用；不把 GetCamera 转字符串，不全局固定 event_center。
-- 当前 36 槽基础布局及角色特有扩展的隐藏 head 保留占位、绑定与动态节点契约；不能因五骨参考可用就缩减骨架。按本人状态和重复序号验证完整同步，小型 head 预加载，完整 torso 不强制预加载。
-- 使用 `zzz` 命名，保护既有 绝区零绝区私有相机数值/定位、可见模型、原骨序、蒙皮、身体动作、表情、眨眼与道具。只修单入口不连带校准正常入口。
+- ZZZ Core 管理相机、分流、事件/活动覆盖和诊断；Pack 管理隐藏载体及动画。角色作用域、画像组和资源契约均满足后才进入私有路径。
+- 特殊事件保持原版调用与动作树；活动两队列接入人物使用私有center，普通人物保留typed `GetCamera`。指定骑乘/战车定向取景作为当前有限例外，按源码审计，不恢复旧420别名。
+- 隐藏head保留基础占位、角色扩展、动态节点和预加载；torso零基2/75与head22兼容定位槽按实际祖先挂接计算。骨数/骨名不证明引擎取点；按本人状态及重复序号验证头身同步，不重复插骨或全局预加载torso。
+- 使用 `zzz` 命名，保护既有 ZZZ Core数值/定位、可见模型、原骨序、蒙皮、身体动作、表情、眨眼与道具。只修单入口不连带校准正常入口。
+
+## 按问题读取
+
+- 默认姿势、小头像、地图标记和死亡入口：[展示待机与死亡](../ck3-zzz-3d-mod/references/portrait-display-and-death.md)。静态API与动作选择分开核查，死亡第一阶段尚待实机。
+- 马/车缺失、取景裁切与人物悬空：[道具与接触约束](../ck3-zzz-3d-mod/references/mount-contact-and-framing.md)。缺失、裁切和接触错位分别取证。
+- 圣人／封圣人物光环缺失或被裁切：[圣人光环装配与维护](../ck3-zzz-3d-mod/references/saint-halo.md)。先核对`saint`／宗教条件与私有画像组装配，再核对实际头部挂点、相机和遮罩；现行六包没有为光环修改GUI或相机。
 
 ## 工作流程
 
@@ -26,7 +32,7 @@ description: CK3 3D 角色肖像相机、隐藏定位节点及事件、活动、
 
 ## 保护与验收
 
-原版男女/儿童、其他角色和 3D 关闭路径保持。世界坐标相等不证明引擎选中相同节点；节点同名、日志无错、定义数量和 Blender 手工选点均不是运行时证据。已有成功的私有直接调用不能以“恢复动态接口”为由撤回。
+原版男女/儿童、其他角色和 3D 关闭路径保持。世界坐标相等不证明引擎选中相同节点；节点同名、日志无错、定义数量和 Blender 手工选点均不是运行时证据。现行调用以最新交付为准，历史成功探针不能作为继续保留已撤旧别名的依据。
 
 单入口合入冻结完整 GUI→路由→相机→节点/动画链；版本回退核对完整基线、增量与较新残留，不能混用版本。按当前事务入口安装，仅回退本轮写入；不修改存档、播放集、工坊，不使用 computer-use。
 
@@ -39,7 +45,7 @@ description: CK3 3D 角色肖像相机、隐藏定位节点及事件、活动、
 - [Blender 与运行时证据](references/blender-and-runtime-validation.md)
 - [失败案例及单入口合入](references/regression-and-failure-cases.md)
 - [本机证据索引](references/local-project-evidence.md)
-- [绝区零绝区私有相机 与 Pack 归属](references/standalone-camera-ownership.md)
+- [ZZZ Core 与 Pack 归属](references/standalone-camera-ownership.md)
 - [共享画像组与采样隔离](references/shared-groups-and-entry-isolation.md)
 - [相机快照导出边界](references/project-camera-catalogue.md)
 
