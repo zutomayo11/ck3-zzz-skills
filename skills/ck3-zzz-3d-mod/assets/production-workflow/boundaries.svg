@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1280" height="720" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="boundaries-title boundaries-desc" data-diagram="boundaries" id="export-boundaries-root">
+<title id="boundaries-title">资源制作、共享前置与角色玩法各有维护边界</title><desc id="boundaries-desc">模型 Pack 提供资源及接入声明，独立 3D 前置提供选模和共享场景路由，角色包通过可选接口接入身份与玩法。</desc>
+<defs>
+      <style>#export-boundaries-root { --page:#efefef;--ink:#111;--muted-page:#565656;--panel:#121212;--node:#1c1c1c;--text:#efefef;--muted:#b8b8b8;--edge:#727272;--rule:#404040;--arrow:#aaa;--accent:#d8fa00;--tint:#202418;--surface:#fff }
+      #export-boundaries-root { font-family: "Microsoft YaHei","MicrosoftJhengHei",sans-serif; color: #efefef; }
+      #export-boundaries-root .canvas { fill:var(--panel) }
+      #export-boundaries-root .node, #export-boundaries-root .stage { fill:var(--node);stroke:var(--edge);stroke-width:1 }
+      #export-boundaries-root .cell { fill:var(--node);stroke:var(--rule);stroke-width:1 }
+      #export-boundaries-root .gate { fill:var(--panel);stroke:var(--edge);stroke-width:1 }
+      #export-boundaries-root .notice { fill:var(--node);stroke:none }
+      #export-boundaries-root .input { stroke-dasharray:none }
+      #export-boundaries-root .optional { stroke-dasharray:5 4 }
+      #export-boundaries-root .focal-border { stroke:var(--accent);stroke-width:2;fill:var(--tint) }
+      #export-boundaries-root .focal-fill { fill:var(--accent);stroke:var(--accent) }
+      #export-boundaries-root text { fill:var(--text) }
+      #export-boundaries-root .chart-title { font-size:28px;font-weight:700 }
+      #export-boundaries-root .muted { font-size:16px;fill:var(--muted) }
+      #export-boundaries-root .small { font-size:14px;fill:var(--muted) }
+      #export-boundaries-root .row-title { font-size:20px;font-weight:700 }
+      #export-boundaries-root .code-small { font:13px Consolas,monospace;fill:var(--muted) }
+      #export-boundaries-root .body { font-size:17px }
+      #export-boundaries-root .cell-text { font-size:16px }
+      #export-boundaries-root .stage-title { font-size:18px;font-weight:700 }
+      #export-boundaries-root .node-title { font-size:20px;font-weight:700 }
+      #export-boundaries-root .big-node-title { font-size:28px;font-weight:700 }
+      #export-boundaries-root .node-note { font-size:16px;fill:var(--muted) }
+      #export-boundaries-root .divider { stroke:var(--rule);stroke-width:1 }
+      #export-boundaries-root .focal-fill + text { fill:#111 }
+      #export-boundaries-root .focal-fill ~ .stage-text { fill:var(--muted) }
+      #export-boundaries-root .stage-text { font-size:13px }
+      #export-boundaries-root .focal-ink { fill:#111 }
+      #export-boundaries-root .focal-muted { fill:#333 }</style><marker id="export-boundaries-boundaries-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L8 4 L0 8 Z" fill="var(--arrow)"/></marker></defs>
+<rect width="1280" height="720" class="canvas"/>
+<text x="48" y="58" class="chart-title" text-anchor="start">资源制作、共享前置与角色玩法各有维护边界</text><text x="48" y="90" class="muted" text-anchor="start">独立模型组合不依赖角色玩法；联用时遵循角色包与前置之间的现行契约</text>
+<path d="M456 316 H520" class="connector" fill="none" stroke="var(--arrow)" stroke-width="1.5" marker-end="url(#export-boundaries-boundaries-arrow)"/><path d="M992 320 H928" class="connector" fill="none" stroke="var(--arrow)" stroke-width="1.5" marker-end="url(#export-boundaries-boundaries-arrow)" stroke-dasharray="5 4"/><rect x="48" y="164" width="408" height="312" rx="6" class="node" stroke="var(--edge)"/><text x="76" y="204" class="code-small" text-anchor="start">MODEL PACK / RESOURCE OWNER</text><text x="76" y="246" class="big-node-title" text-anchor="start">模型 Pack</text><text x="76" y="294" class="body" text-anchor="start">模型、皮肤、材质、Shader 与贴图</text><text x="76" y="328" class="body" text-anchor="start">原生动作、CK3 重定向与眨眼数据</text><text x="76" y="362" class="body" text-anchor="start">隐藏载体、动态挂点和道具动作</text><text x="76" y="396" class="body" text-anchor="start">画像组、外观基因与光环注册</text><text x="76" y="444" class="muted" text-anchor="start">五条资源链的生产结果由当前 Pack 持有</text><rect x="520" y="164" width="408" height="312" rx="6" class="node focal-border" stroke="var(--edge)"/><text x="548" y="204" class="code-small" text-anchor="start">STANDALONE 3D CORE</text><text x="548" y="246" class="big-node-title" text-anchor="start">独立 3D 前置</text><text x="548" y="294" class="body" text-anchor="start">模型识别、直接选模与外观恢复</text><text x="548" y="328" class="body" text-anchor="start">共享姿势菜单、镜头与显示同步</text><text x="548" y="362" class="body" text-anchor="start">场景分流、理发店入口与可选 RUI</text><text x="548" y="396" class="body" text-anchor="start">缺席 Pack 的回退与可选回调默认</text><text x="548" y="444" class="muted" text-anchor="start">共享规则维护入口；模型资源仍归各 Pack</text><rect x="992" y="224" width="240" height="192" rx="6" class="node optional" stroke="var(--edge)"/><text x="1012" y="256" class="code-small" text-anchor="start">OPTIONAL ROLE PACK</text><text x="1012" y="296" class="big-node-title" text-anchor="start">角色包</text><text x="1012" y="332" class="body" text-anchor="start">身份、特质与角色创建</text><text x="1012" y="360" class="body" text-anchor="start">调频玩法与 zzz_skin</text><text x="1012" y="388" class="body" text-anchor="start">可选创建回调</text><rect x="48" y="528" width="1184" height="108" rx="6" class="notice" stroke="var(--edge)"/><text x="72" y="564" class="node-title" text-anchor="start">独立模型组合</text><text x="304" y="564" class="body" text-anchor="start">按实际外观识别；不因选模型添加角色身份特质。</text><text x="72" y="606" class="node-title" text-anchor="start">与角色包联用</text><text x="304" y="606" class="body" text-anchor="start">调频由角色包独占；禁止直接选模，按现行契约恢复外观。</text><line x1="48" y1="660" x2="1232" y2="660" class="divider"/>
+<text x="48" y="692" class="small" text-anchor="start">实线：资源接入 · 虚线：可选玩法接口</text><text x="1232" y="692" class="small" text-anchor="end">版本、角色数量与兼容槽位以当前配置为准，不固定为历史快照</text></svg>

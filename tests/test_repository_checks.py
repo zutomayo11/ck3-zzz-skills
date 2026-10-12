@@ -55,6 +55,58 @@ class RepositoryChecks(unittest.TestCase):
                     checker.update_manifest(root)
                 forbidden.unlink()
 
+    def test_named_documentation_diagrams_are_included_in_manifest(self):
+        checker = self.checker()
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            skill = root / "skills" / "ck3-zzz-3d-mod"
+            diagrams = skill / "assets" / "production-workflow"
+            diagrams.mkdir(parents=True)
+            (skill / "SKILL.md").write_text(
+                "---\nname: ck3-zzz-3d-mod\ndescription: demo\n---\nDemo\n", encoding="utf-8")
+            svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720"><title>Demo</title><desc>Artificial diagram</desc><rect width="4" height="4"/></svg>'
+            (diagrams / "overview.svg").write_text(svg, encoding="utf-8")
+            (diagrams / "production-workflow.html").write_text(
+                '<!doctype html><html><body><a href="#overview">Overview</a>' + svg + '</body></html>', encoding="utf-8")
+            checker.update_manifest(root)
+            result = checker.verify_repository(root)
+            self.assertEqual(result["skill_files"], 3)
+            self.assertEqual(result["documentation_diagrams"], 2)
+            (diagrams / "unexpected.svg").write_text(svg, encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "Non-source payload"):
+                checker.payload_files(root)
+
+    def test_diagram_names_do_not_allow_active_or_embedded_resources(self):
+        checker = self.checker()
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            diagrams = root / "skills" / "ck3-zzz-3d-mod" / "assets" / "production-workflow"
+            diagrams.mkdir(parents=True)
+            svg_path = diagrams / "overview.svg"
+            cases = [
+                '<svg xmlns="http://www.w3.org/2000/svg"><script>demo()</script></svg>',
+                '<svg xmlns="http://www.w3.org/2000/svg" xmlns:s="http://www.w3.org/2000/svg"><s:script>demo()</s:script></svg>',
+                '<svg xmlns="http://www.w3.org/2000/svg"><image href="data:image/png;base64,AAAA"/></svg>',
+                '<svg xmlns="http://www.w3.org/2000/svg"><rect onload="demo()"/></svg>',
+                '<svg xmlns="http://www.w3.org/2000/svg"><use href="https://example.invalid/model.svg"/></svg>',
+                '<svg xmlns="http://www.w3.org/2000/svg"><style>@import "https://example.invalid/font.css";</style></svg>',
+                '<svg xmlns="http://www.w3.org/2000/svg"><style>rect {fill:url(data:image/png;base64,AAAA)}</style></svg>',
+                '<svg xmlns="http://www.w3.org/2000/svg"><foreignObject/></svg>',
+                '<svg',
+            ]
+            for source in cases:
+                with self.subTest(source=source):
+                    svg_path.write_text(source, encoding="utf-8")
+                    with self.assertRaises(ValueError):
+                        checker.payload_files(root)
+            svg_path.unlink()
+            html_path = diagrams / "production-workflow.html"
+            for source in ('<html><script>demo()</script></html>', '<html><img src="local.png"></html>'):
+                with self.subTest(source=source):
+                    html_path.write_text(source, encoding="utf-8")
+                    with self.assertRaises(ValueError):
+                        checker.payload_files(root)
+
 
 if __name__ == "__main__":
     unittest.main()

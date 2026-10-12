@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "snapshot_at": "2026-10-12T17:20:28+08:00",
+  "snapshot_at": "2026-10-12T19:15:49+08:00",
   "source": "Repository-maintained skills and portable code references",
-  "file_count": 58,
+  "file_count": 63,
   "skills": [
     "ck3-portrait-camera",
     "ck3-zzz-3d-mod",
@@ -105,6 +105,26 @@
       "sha256": "6036241ab2739592f206daed86f6de2de56229237083ffb0e2da2d4e7a742ec8"
     },
     {
+      "path": "skills/ck3-zzz-3d-mod/assets/production-workflow/boundaries.svg",
+      "bytes": 6757,
+      "sha256": "65bf9c34c00935886746ca6c10069cc9a162cbf9e3a48ef39d52554ce72d3717"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/assets/production-workflow/chains.svg",
+      "bytes": 8775,
+      "sha256": "fd21924d2446c9bbbfe31caf5556b7e4ebb99b5dcdc1034f3c1cfd7711eb7b9c"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/assets/production-workflow/overview.svg",
+      "bytes": 11530,
+      "sha256": "587ffeff536802065ebbf9a73425156dc91769a64039f4a20c7f368cc90f619f"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/assets/production-workflow/production-workflow.html",
+      "bytes": 37017,
+      "sha256": "cb1e2e68a8e12b9b3fe1e7afc209458301d1225a7a2c1325613b76ff2ad00fb8"
+    },
+    {
       "path": "skills/ck3-zzz-3d-mod/examples/reference_walkthrough.py",
       "bytes": 2022,
       "sha256": "84cabb4373d5bc0475a566677d8a5b4020c7bd621b945aabc96b8802a6d29836"
@@ -141,8 +161,8 @@
     },
     {
       "path": "skills/ck3-zzz-3d-mod/references/code-reference-workflow.md",
-      "bytes": 4848,
-      "sha256": "a2614377eb7768f6c0fa46321a0f3a53ab23856190ee4052c4199613b1bdc109"
+      "bytes": 4988,
+      "sha256": "ddb61734be81240b9d90e05fb566605b2ec7241c9c1dd66a01cbd302a9789736"
     },
     {
       "path": "skills/ck3-zzz-3d-mod/references/code-reference.md",
@@ -188,6 +208,11 @@
       "path": "skills/ck3-zzz-3d-mod/references/portrait-routing-and-validation.md",
       "bytes": 2362,
       "sha256": "ed7a872379bb18913d8e7e3a00e581c83b8d41251412de4f4bfb06c574d3f814"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/references/production-workflow.md",
+      "bytes": 8761,
+      "sha256": "d16cbb1b775b955476290923a1a05906c8b08d337e492dc638ea9b11766df907"
     },
     {
       "path": "skills/ck3-zzz-3d-mod/references/retarget-and-blink.md",
@@ -261,8 +286,8 @@
     },
     {
       "path": "skills/ck3-zzz-3d-mod/SKILL.md",
-      "bytes": 17933,
-      "sha256": "67fe676427eaf7d0473e94f4ee345faf99ca470278c947e9725c0faf73c69b73"
+      "bytes": 18155,
+      "sha256": "a81830efe5b1a41ceb9ae280c60f4ca4e4f4a076c64c4971b6fb1a958ab38fae"
     },
     {
       "path": "skills/ck3-zzz-3d-mod/tests/test_code_reference.py",

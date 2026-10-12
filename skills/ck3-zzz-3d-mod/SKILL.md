@@ -7,6 +7,8 @@ description: 制作维护 CK3 绝区零独立3D前置与模型Pack，适用于�
 
 ## 随技能提供的代码参考
 
+完整制作顺序和组件职责见[3D 制作流程图](references/production-workflow.md)，包含总览、两条动作分支及五条参考链的实际覆盖范围。图示不替代当前工程配置与专项规范。
+
 转换、动画、重定向、装配和验证从[五条核心链参考入口](references/code-reference.md)开始，按任务读取输入契约、接入流程与来源索引。参考模块在本技能 `scripts/zzz_reference/`，使用显式输入，不读取本机工程、运行安装或提供实际素材；不要把最小示例当成完整人物模板。角色玩法与[独立前置规则](references/standalone-core-reference.md)分别维护。下面的版本/路径属于本机历史快照，实际任务以用户当前工程为准。
 
 ## 当前基线与新 Pack 范围

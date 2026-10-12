@@ -14,6 +14,14 @@
 
 三份技能存在同级目录之间的相对引用，请整套安装并保留原有文件夹名称。
 
+## 3D 制作流程
+
+![绝区零3D模型制作总览：六阶段及贯穿全过程的验证](skills/ck3-zzz-3d-mod/assets/production-workflow/overview.svg)
+
+[详细流程与五条核心链](skills/ck3-zzz-3d-mod/references/production-workflow.md)说明输入、输出、原生动画与 CK3 重定向分支，以及模型 Pack、独立 3D 前置和角色包的职责。
+
+[离线 HTML 浏览版本](skills/ck3-zzz-3d-mod/assets/production-workflow/production-workflow.html)下载后用浏览器打开，支持详细、浅色和深色视图。图示仅含文档文字和矢量形状，无实际游戏素材；参考模块不构成完整的一键人物制作器，图示验证也不代表游戏验收。
+
 ## 目录结构
 
 ```text
@@ -35,6 +43,7 @@ ck3-zzz-skills/
 - `scripts/`：3D技能的五条核心链参考模块；相机技能的两个只读分析工具。
 - `examples/`：只使用人工数值、在内存中执行的参考示例。
 - `assets/`：相机验证报告的 JSON 模板。
+- `ck3-zzz-3d-mod/assets/production-workflow/`：三张纯文本 SVG 文档图与离线 HTML，随整个技能安装。
 - `tests/`：工具测试、测试夹具和人工行为场景。
 
 ## 安装到 Codex
@@ -94,7 +103,7 @@ python -B -m unittest discover -s tests -p "test_*.py"
 python -B tools/check_repository.py
 ```
 
-示例只打印摘要，不生成资源。输入全部在代码内人工构造；仓库不提供真实网格、图片、动画数据、成品、备份或旧安装收据。二进制PDX后端及实际Blender/游戏适配由使用者提供，参考代码不执行安装或发布。
+示例只打印摘要，不生成资源。输入全部在代码内人工构造；仓库不提供实际游戏网格、贴图、动画数据、成品、备份或旧安装收据。二进制PDX后端及实际Blender/游戏适配由使用者提供，参考代码不执行安装或发布。
 
 [角色玩法](skills/ck3-zzz-portrait-mod/references/role-code-reference.md)和[独立前置规则](skills/ck3-zzz-3d-mod/references/standalone-core-reference.md)独立说明职责与后续代码提取点；本轮没有移植其完整生成器或历史维护器。资源算法测试不代表这两个模块的玩法/UI已经通过。
 
@@ -104,7 +113,7 @@ python -B tools/check_repository.py
 
 后续同步时，先比较本机与仓库的变化，保留仓库新增的参考模块；不要用整个本机目录覆盖仓库扩展。更新相关文件和来源清单，验证引用及测试后提交。技能更新不自动改变 Mod 版本，也不执行工程构建、游戏启动或工坊发布。
 
-修改完成后用 `python -B tools/check_repository.py --update-manifest` 更新技能文件清单，再用无参数命令回读。检查器拒绝资源/二进制类型和新增生产数据/安装收据JSON，检查全部Python语法、相对文件链接及技能文件哈希；游戏资产的真实性和使用许可仍需使用者按自己的来源确认。根目录 `tools/` 与 `tests/` 是仓库维护工具，安装技能时不需要复制它们。
+修改完成后用 `python -B tools/check_repository.py --update-manifest` 更新技能文件清单，再用无参数命令回读。检查器仅对白名单中的四份 SVG/HTML 文档图例外放行，拒绝其脚本、嵌入图片与非本地资源引用；其他资源/二进制类型及新增生产数据/安装收据JSON仍拒绝。检查全部Python语法、相对文件链接及技能文件哈希；游戏资产的真实性和使用许可仍需使用者按自己的来源确认。根目录 `tools/` 与 `tests/` 是仓库维护工具，安装技能时不需要复制它们。
 
 ## 许可
 
