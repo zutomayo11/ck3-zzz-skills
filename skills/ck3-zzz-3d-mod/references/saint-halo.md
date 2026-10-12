@@ -40,14 +40,18 @@
 
 各入口仍需分别实测不同体型、换装、动作、活人/已故圣人、重启/读档的大小、位置和裁剪。未观察画面为`NOT_TESTED`；保留既有死后换装限制。不能因挂点存在或离线规则通过就称光环在所有界面正常。
 
-## 当前交付与维护
+## 当前归属与历史证据
 
-2026-10-10安装快照：角色包1.3.0不变，Pack1–5 2.0.5／Pack6 1.0.1。原模型/动画/DDS/Shader/相机/GUI均无本轮写入。详见工程`reports/zzz_saint_halo/delivery.md`、`payload.json`、`installation.json`、`verification.json`与`review.json`；实际画面均`NOT_TESTED`。
+现行六个本地Pack均1.0.0，仍保留本包光环注册；独立前置提供共享显示入口，光环资源来自CK3原版，角色包不提供新封圣或二维光环。当前路径、版本与维护入口见[共用规范](zzz-core-pack4-workflow.md)。
+
+以下是转正前的2026-10-10历史安装快照：角色包1.3.0不变，Pack1–5 2.0.5／Pack6 1.0.1。原模型/动画/DDS/Shader/相机/GUI均无本轮写入。详见工程`reports/zzz_saint_halo/delivery.md`、`payload.json`、`installation.json`、`verification.json`与`review.json`；实际画面均`NOT_TESTED`。
+
+下列是历史光环轮次入口，保留用于核对旧证据，不对当前转正包执行写入/恢复；历史verify也可能因后续授权变化拒绝，不解除保护。
 
 ```text
 C:/Python312/python.exe -X utf8 -B D:/CK3-mod/miyabi_3d_mod_project/scripts/repair_zzz_saint_halo.py verify
 ```
 
-同入口`restore`／`recover`仅维护本轮；关闭游戏与实际启动器，外部变化停止。restore精确回到Pack1–5 2.0.4／Pack6 1.0.0，保留角色包1.3.0与此前修复；实际成品restore尚未执行。已安装后不再执行candidate/install，不使用旧全量恢复覆盖后续状态。
+历史同入口`restore`／`recover`仅针对当时光环轮次；关闭游戏与实际启动器，外部变化停止。restore精确回到Pack1–5 2.0.4／Pack6 1.0.0，保留角色包1.3.0与此前修复；实际成品restore尚未执行。已安装后不再执行candidate/install，不使用旧全量恢复覆盖后续状态。
 
 当前测试为工程`tests/test_zzz_saint_halo.py`与`test_zzz_saint_halo_maintenance.py`。Pack6旧首次登记测试在本轮安装前因已登记而报错，见`pack6_regression_tests.log`；不为通过该历史用例撤销登记或修改数据库。

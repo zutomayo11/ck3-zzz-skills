@@ -1,7 +1,19 @@
 {
-  "schema": "ck3-portrait-camera/behavior-scenarios-v3",
+  "schema": "ck3-portrait-camera/behavior-scenarios-v4",
   "validation_method": "人工决策审查；自动测试仅校验资料结构，不模拟代理行为或游戏验收。",
   "scenarios": [
+    {
+      "id": "rui_optional_display_pose",
+      "request": "打开RUI后大肖像不跟随本人默认、原版默认和其他手选；关闭RUI应保持原功能且六包不改",
+      "required_decision": "读RUI专项，定位portrait_character_view成人固定idle，前置复用zzz_core_display_animation；核对无RUI闭包、两种顺序、主角/配偶、全身/半身、实际模型及普通人物；保持相机和六包，不把Python模拟认可的True/False当CK3语法证据",
+      "expected_status": "NOT_TESTED"
+    },
+    {
+      "id": "rui_increment_recovery_boundary",
+      "request": "RUI增量已安装，想按旧转正入口全量回退；受保护资源内容已变但大小和时间戳未变",
+      "required_decision": "使用repair_rui_compat本轮精确维护，不绕过活动增量的旧全量恢复禁令；recover写入前完整哈希检查并拒绝外部变化；保留RUI原死亡API/idle回退，不外推原版EvenIfDead修复或宣称游戏已通过",
+      "expected_status": "NOT_TESTED"
+    },
     {
       "id": "current_event_activity_contract",
       "request": "同一动作在多个特殊事件机位出现，活动也请求该动作",
@@ -126,6 +138,54 @@
       "id": "council_culture",
       "request": "理发店间谍拿匕首，内阁重复东亚姿态",
       "required_decision": "先对照原版文化/任务选择；查找秘密优先偷听，手选绕过分支不说明资源缺失，不强制改风格",
+      "expected_status": "NOT_TESTED"
+    },
+    {
+      "id": "paper_only_split",
+      "request": "只保留立绘、调频和音擎",
+      "required_decision": "角色包与原三项前置保留非3D玩法；不需要Core或Pack，不把共享3D合回角色包，不执行旧完整构建",
+      "expected_status": "NOT_TESTED"
+    },
+    {
+      "id": "standalone_model_selection",
+      "request": "普通人物、儿童或外国人物右键切模型",
+      "required_decision": "定位独立Core交互/卡片/外观效果，写选中目标并先备份；不调用调频、不改身份玩法、AI不自动用",
+      "expected_status": "NOT_TESTED"
+    },
+    {
+      "id": "linked_tuning_callback",
+      "request": "角色包与Core联用，调频人物接模型",
+      "required_decision": "角色包独占创建及身份映射，可选zzz_split_role_created接入；缺Pack立绘回退，直接选择三层禁止",
+      "expected_status": "NOT_TESTED"
+    },
+    {
+      "id": "unavailable_model_card",
+      "request": "模型选择窗没有加载对应Pack",
+      "required_decision": "按实际加载内容灰显卡片及原因，执行也拒绝；不隐藏整个角色清单、不写目标外观",
+      "expected_status": "NOT_TESTED"
+    },
+    {
+      "id": "first_appearance_backup",
+      "request": "原脸到模型A再到B，恢复并保存读档",
+      "required_decision": "首次死亡辅助载体备份不覆盖，恢复外观类型及遗传外观；缺备份停止；读档、非遗传定制与后代遗传保持未实测边界",
+      "expected_status": "NOT_TESTED"
+    },
+    {
+      "id": "split_prop_fallback",
+      "request": "星见雅默认姿势下CK3武器与马消失",
+      "required_decision": "星见雅Pack3；先查Core独立00兜底与Pack真实42定义的VFS及数据库优先级，不恢复同路径空props；默认动作未请求的道具不强加，不先改相机或源武器Shader",
+      "expected_status": "NOT_TESTED"
+    },
+    {
+      "id": "pack_owned_saint_halo",
+      "request": "绝区零圣人头顶无光环",
+      "required_decision": "光环注册归各Pack，检查saint/rf_abrahamic及实际head挂点，复用原版资源；Core仅显示路由，不新建封圣或2D叠图",
+      "expected_status": "NOT_TESTED"
+    },
+    {
+      "id": "new_pack_split_contract",
+      "request": "新增第七个模型Pack",
+      "required_decision": "真实目录配置先确认；仅依赖独立Core，无创建模板，必要共享接口与卡片支持定向补充；光环生成器六包断言不得直接套用，不重建旧包",
       "expected_status": "NOT_TESTED"
     }
   ]

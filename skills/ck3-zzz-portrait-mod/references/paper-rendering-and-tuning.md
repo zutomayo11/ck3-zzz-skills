@@ -27,6 +27,6 @@
 - 代理人和音擎同池。普通每抽S 5%、A 15%、B 80%；重复S/A/B分别转40/10/1信号余波。代理人沿用同身份活人判重，音擎按终身创建标记判重。
 - 每次十连至少一个A或S。前九抽普通池；若已出现A/S，第十抽仍普通池；否则第十抽S 5%、A 95%。代理人、音擎及重复的A/S均满足保底。
 - `zzz_batch_high_rarity` 每批开始清空、结束移除，不把上一批保底状态带入下一批，不改变单抽。保留现有费用、冷却、首次自选与100余波自选规则，相关值以settings为准。
-- 新玩法生成到独立 `common/scripted_effects/zzz_role_gameplay.txt`，由 `role_gameplay.py` 重写为 `zzz_role_` 函数。保底函数须列入其私有集合，GUI/decision/on_action调用同步重写；保留 `zzz_create_<agent>` 外观创建接口原样，避免3D包旧同名文件覆盖玩法。
+- 新玩法生成到独立 `common/scripted_effects/zzz_role_gameplay.txt`，由 `role_gameplay.py` 重写为 `zzz_role_` 函数。保底函数须列入其私有集合，GUI/decision/on_action调用同步重写；保留 `zzz_create_<agent>` 外观创建接口原样；创建完成后调用可选 `zzz_split_role_created`，Core缺席为空效果。现行Pack已移除21份创建模板，创建归角色包独占，禁止后续生成重新带回Pack。
 
 相关检查按改动选择：`python -X utf8 -m unittest test_wengines`、`test_tuning_ui`、`test_ten_guarantee`、`test_paper_rendering`。使用实际启用包顺序的VFS覆盖组合；角色包单独输出正确不代表和3D包一起加载正确。规则模拟、静态引用与用户实机反馈分开记录，不为局部变化默认运行全部测试或重建3D资源。

@@ -1,4 +1,4 @@
 interface:
-  display_name: "CK3 肖像相机与 绝区零绝区私有相机 适配"
-  short_description: "按角色包内置 绝区零绝区私有相机 契约核对私有相机、隐藏载体同步和原版回退"
-  default_prompt: "使用 $ck3-portrait-camera 按 角色包内置 绝区零绝区私有相机／正式模型包 契约诊断取景，核对调用来源、隐藏节点与普通人物回退，并区分静态和实机证据。"
+  display_name: "CK3 肖像相机与 ZZZ Core 适配"
+  short_description: "按独立3D前置与模型Pack契约核对相机调用、隐藏载体同步及原版回退"
+  default_prompt: "使用 $ck3-portrait-camera 按独立3D前置与模型Pack契约诊断取景，核对真实来源、隐藏节点与普通人物回退，区分离线和实机证据。"

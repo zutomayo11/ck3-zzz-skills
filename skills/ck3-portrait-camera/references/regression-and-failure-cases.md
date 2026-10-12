@@ -1,6 +1,6 @@
 # 反例与回归表
 
-当前排错以[内置 ZZZ Core／正式模型包 规范](../../ck3-zzz-3d-mod/references/zzz-core-pack4-workflow.md)为准。已有正确调用、节点和数值保持；历史案例只支持其绑定版本。
+当前排错以[独立3D前置／正式模型Pack 规范](../../ck3-zzz-3d-mod/references/zzz-core-pack4-workflow.md)为准。已有正确调用、节点和数值保持；历史案例只支持其绑定版本。
 
 | 症状 | 检查点 | 危险做法 | 正确验证 |
 |---|---|---|---|

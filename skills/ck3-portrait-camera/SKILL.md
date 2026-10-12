@@ -1,6 +1,6 @@
 ---
 name: ck3-portrait-camera
-description: CK3 3D 角色肖像相机、隐藏定位节点及事件、活动、载入取景的诊断与回归。绝区零项目使用 角色包内置 ZZZ Core／正式模型包 调用契约；模型提取、贴图和完整动作制作由对应制作技能处理。
+description: CK3 3D角色肖像相机、隐藏定位节点、RUI大肖像姿势不同步及事件、活动、载入取景的诊断与回归；绝区零按独立3D前置／正式模型Pack契约定位来源，模型提取与完整动作制作由对应技能处理。
 ---
 
 # CK3 肖像相机与 ZZZ Core 适配
@@ -9,15 +9,16 @@ description: CK3 3D 角色肖像相机、隐藏定位节点及事件、活动、
 
 ## 当前工作线
 
-绝区零项目先读[内置 ZZZ Core／正式模型包工作规范](../ck3-zzz-3d-mod/references/zzz-core-pack4-workflow.md)。2026-10-10圣人光环交付快照为角色包1.3.0、内置Core来源0.6.2、正式Pack1–5 2.0.5／Pack6 1.0.1；25个私有画像组。正式相机源在角色工程 core_integration，运行输出在 zenless_zone_zero。独立 zzz core legacy 仅用于明确的测试组合，不能误改为正式相机源。实际 settings、成品、加载顺序和收据优先。
+绝区零项目先读[独立3D前置／正式模型Pack工作规范](../ck3-zzz-3d-mod/references/zzz-core-pack4-workflow.md)。2026-10-11现装快照为角色包1.4.0、独立前置1.1.0（内置RUI 20可选兼容）及六个本地正式Pack均1.0.0；25个私有画像组。共享GUI与相机运行来源是 `D:/CK3-mod/zzz_split_test_project/mods/core`，正式转正配置与冻结候选在该工程 `formal_release`，RUI增量收据在 `rui_compat_110`。角色工程 `core_integration` 和 `D:/CK3-mod/zzz_core` 只作历史来源，不回写。具体接口、模式与维护边界按共用规范；实际成品和收据优先。
 
-- ZZZ Core 管理相机、分流、事件/活动覆盖和诊断；Pack 管理隐藏载体及动画。角色作用域、画像组和资源契约均满足后才进入私有路径。
+- 独立3D前置管理相机、分流、事件/活动覆盖和诊断；Pack 管理隐藏载体及动画。角色作用域、画像组和资源契约均满足后才进入私有路径。
 - 特殊事件保持原版调用与动作树；活动两队列接入人物使用私有center，普通人物保留typed `GetCamera`。指定骑乘/战车定向取景作为当前有限例外，按源码审计，不恢复旧420别名。
 - 隐藏head保留基础占位、角色扩展、动态节点和预加载；torso零基2/75与head22兼容定位槽按实际祖先挂接计算。骨数/骨名不证明引擎取点；按本人状态及重复序号验证头身同步，不重复插骨或全局预加载torso。
 - 使用 `zzz` 命名，保护既有 ZZZ Core数值/定位、可见模型、原骨序、蒙皮、身体动作、表情、眨眼与道具。只修单入口不连带校准正常入口。
 
 ## 按问题读取
 
+- RUI主角/配偶全身或半身大肖像不跟随默认/手选姿势：[RUI可选肖像兼容](../ck3-zzz-3d-mod/references/rui-optional-compatibility.md)。先查固定`idle`是否绕过展示选择器，保持相机和六包资源；无RUI及两种顺序需独立核对，不因肖像变大就校准骨架或改相机。
 - 默认姿势、小头像、地图标记和死亡入口：[展示待机与死亡](../ck3-zzz-3d-mod/references/portrait-display-and-death.md)。静态API与动作选择分开核查，死亡第一阶段尚待实机。
 - 马/车缺失、取景裁切与人物悬空：[道具与接触约束](../ck3-zzz-3d-mod/references/mount-contact-and-framing.md)。缺失、裁切和接触错位分别取证。
 - 圣人／封圣人物光环缺失或被裁切：[圣人光环装配与维护](../ck3-zzz-3d-mod/references/saint-halo.md)。先核对`saint`／宗教条件与私有画像组装配，再核对实际头部挂点、相机和遮罩；现行六包没有为光环修改GUI或相机。

@@ -26,7 +26,7 @@
 
 `scripts/court_animation_fallback.py` 给 hm_idle 增加 `NOT = { zzz_3d_animated_portrait_trigger = yes }`，按实际本包3D ethnicity 排除回退。不要全局改 waifu_portrait_trigger、角色身份、真正死亡类别或旧菜单兼容状态。
 
-现行正式包以角色包内置 ZZZ Core 的包可用性、身份和实际画像分流为准，不重新安装下列旧桥。历史旧桥曾由各包共享 `common/scripted_triggers/000_zzz_court_animation_defaults.txt`，对缺失的包默认返回 false；各包后加载的 `zzz_court_animation_pack*.txt` 仅引用本包存在的 ethnicity。共享接口实改时保持共享文件字节一致，并检查受影响启用组合、关闭3D后的纸片人及其他角色；数量从当前包清单推导，不固定三包七组合。接口未变不重复检查旧组合。`tests/test_court_animation_fallback.py` 还检查幂等和原规则保留。
+现行正式包以独立3D前置的包可用性、开关和实际模型/画像分流为准；联用身份映射归角色包，不重新安装下列旧桥。历史旧桥曾由各包共享 `common/scripted_triggers/000_zzz_court_animation_defaults.txt`，对缺失的包默认返回 false；各包后加载的 `zzz_court_animation_pack*.txt` 仅引用本包存在的 ethnicity。共享接口实改时保持共享文件字节一致，并检查受影响启用组合、关闭3D后的纸片人及其他角色；数量从当前包清单推导，不固定三包七组合。接口未变不重复检查旧组合。`tests/test_court_animation_fallback.py` 还检查幂等和原规则保留。
 
 1.0.3 的离线测试证明存在并排除了上述条件冲突；随后截图可见莱卡恩采用了交谈姿势，但未取得运行时跟踪证明所有宫廷类别的具体继承路径。不要把截图或条件求值扩大为全场景实测结论。
 

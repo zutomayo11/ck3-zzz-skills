@@ -1,6 +1,6 @@
 # 生成、测试与本地登记
 
-工作目录 `D:/CK3-mod/zzz_mod_project`。Python3.12与Pillow为当前可用环境，先验证实际解释器与依赖，不因技能文本安装另一套环境。
+角色玩法源码工作目录 `D:/CK3-mod/zzz_mod_project`；现行分发与维护按[拆分共用规范](../../ck3-zzz-3d-mod/references/zzz-core-pack4-workflow.md)。下列完整构建命令为历史算法参考，写入入口已退役，不对当前1.4.0成品执行；局部更新做当前输出的定向候选与独立收据。Python3.12与Pillow为当前可用环境，先验证实际解释器与依赖，不因技能文本安装另一套环境。
 
 ```powershell
 python -X utf8 build_mod.py
@@ -16,15 +16,11 @@ python -X utf8 -m unittest test_faction_opinions test_tuning_ui test_local_regis
 
 缓存更新必须等启动器安全关闭后备份，只改已核实的本地行，保留工坊条目、播放集及其他字段。运行中不并发写数据库；关闭被拒或无法确认进程身份时完成其余文件同步，记录缓存未同步及重启后核对事项，不冒称已退出或已同步。内容修复不授权改订阅/播放集或终止未知进程。
 
-## 内置 ZZZ Core 与现行维护
+## 拆分后的分发与维护
 
-角色包版本来自 settings.json；embedded_zzz_core.source_version=0.6.0 是导入来源版本，不是另一个正式发布包版本。`settings.json.core` 仍指二向箔参考库，不可改指 ZZZ Core。
+角色包1.4.0为 `distribution_profile = paper_only`，共享3D已转入独立前置；六Pack仅依赖该前置。角色包 `settings.json.core` 仍指二向箔参考库，不可改指独立3D前置。旧 `historical_embedded_zzz_core`、`core_integration`、`zzz_core_merge.py` 与菜单合并是历史来源，不再合回角色成品。
 
-权威源为 `core_integration/files` 与 manifest.json，`zzz_core_merge.py` 校验来源哈希和许可覆盖，`build_mod.py` 在角色包生成末尾合并。原生菜单先由 native_menu_merge.py 合并，ZZZ Core 再覆盖两份已登记菜单；核对最终 build_manifest.json 的有效来源。修改共享 ZZZ Core 需同步来源、声明的哈希及候选，不能只改输出或只刷新哈希绕过语义验证。
-
-当前运行维护使用 `C:/Python312/python.exe -X utf8 -B D:/CK3-mod/miyabi_3d_mod_project/scripts/merge_zzz_core_role_100.py verify`，同入口 restore/recover 按本轮收据精确处理。上方完整 build_mod.py 命令仅为生成器参考；局部修复先做候选及必要验证，不直接覆盖现装成品。
-
-五个正式模型包依赖角色包，不依赖独立ZZZ Core。独立测试顺序是角色包 → zzz core legacy → pack2-core-test；仍加载角色包，由Legacy提供其实际同路径Core覆盖。详细基线、加载范围和恢复边界见[共用规范](../../ck3-zzz-3d-mod/references/zzz-core-pack4-workflow.md)，不默认切换播放集或改写Legacy。
+正式配置与现行入口在拆分工程 `formal_release/settings.json`、`promote_formal_split.py verify|restore|recover`；当前已有收据，不重复转正。旧完整生成、登记模式切换及restore默认不执行，先核对当前授权范围与保护门。后续玩法修复基于现装角色输出、源JSON和对应生成算法做局部候选，保留可选回调与角色包独占人物创建，不重新带入共享3D文件。具体依赖、运行路径与旧入口边界见[共用规范](../../ck3-zzz-3d-mod/references/zzz-core-pack4-workflow.md)。
 
 ## 开局初始化与说明（0.8起）
 
@@ -46,7 +42,7 @@ python -X utf8 -m unittest test_faction_opinions test_tuning_ui test_local_regis
 
 CK3 会按名称去重，本地条目即使在播放集中禁用仍可能挡住同名工坊条目。不要以反复改名或给正式上传目录添加“开发版”后缀解决，也不要删工坊文件。
 
-在游戏和启动器已关闭、任务确需切换模式时：
+下列为历史模式切换命令，不是转正后的默认登记流程；关闭游戏和启动器也不自动解除旧入口退役限制。仅在明确授权且当前入口支持该目标时使用，不解除保护来重跑：
 
 - 本地开发登记：`python -X utf8 register_local_mod.py --local`。
 - 准备用户授权的上传：`python -X utf8 register_local_mod.py --publish`。这只登记，不是上传；之后仍需用户明确的发布授权。

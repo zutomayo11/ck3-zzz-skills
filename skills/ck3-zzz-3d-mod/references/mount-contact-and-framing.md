@@ -2,6 +2,12 @@
 
 用于马/战车不见、角色骑乘悬空、脚底与车厢不接触等问题。先按[共用规范](zzz-core-pack4-workflow.md)核对实际调用与骨架；展示和死亡另读[展示入口](portrait-display-and-death.md)。本页算法来自对应交付，不能直接套固定高度到新角色。
 
+## 拆分后的原版道具兜底
+
+前置继承的25份同路径空 `42_zzz_*_props.txt` 曾遮蔽Pack真实DNA道具定义；改变启动器显示顺序不能单独排除该原因。现装前置已移除这些空文件，改为独立早期 `00_zzz_split_optional_props.txt`（空接口、`usage = none`），Pack的后续42文件提供实际定义。先核对最终VFS和数据库同名组优先级，再查完整附件链，不恢复旧空文件，也不为默认Galgame强制添加动作原本未请求的马或武器。
+
+共享兜底/引用属于独立前置，真实道具基因、附件、实体与挂点属于对应Pack；星见雅对应 `pack3_hsos6`。绝区零源武器显隐仍是另一条Shader链。离线排序仅预测引擎采用结果；相关修复历史证据在拆分工程 `props_021/delivery.md`、`props_validation.py`，当前正式维护仍按[共用规范](zzz-core-pack4-workflow.md#验证安装与精确恢复)。
+
 ## 先分清四层
 
 1. **预期道具缺失**：从当前原版动作及条件求出应有附件，逐项检查 modifier → gene/template → accessory → entity → node。只检查已有引用是否有效，会漏掉整条马、羊或乐器附件。
@@ -49,4 +55,4 @@
 
 新取景/接触游戏结果均为 `NOT_TESTED`。逐角色、外观、动作、进行中/结束队列和理发店回归，含普通人物、3D关闭及未修改动作；不能将32种静态组合闭包写成实机通过。
 
-报告相对 `D:/CK3-mod/miyabi_3d_mod_project`：`reports/zzz_props_death_113/`、`reports/zzz_ground_framing_113/`、`reports/zzz_ground_framing/`、`reports/zzz_mount_contact_114/`、`reports/zzz_mount_contact/`。实现使用当前 `zzz_ground_framing*`、`zzz_mount_contact.py` 的定向算法；维护分别为 `repair_zzz_ground_framing_113.py` 和 `repair_zzz_mount_contact_114.py` 的 `verify|restore|recover`。旧全量生成/恢复不得覆盖后续修复。
+历史算法报告相对 `D:/CK3-mod/miyabi_3d_mod_project`：`reports/zzz_props_death_113/`、`zzz_ground_framing_113/`、`zzz_ground_framing/`、`zzz_mount_contact_114/`、`zzz_mount_contact/`；`zzz_ground_framing*` 与 `zzz_mount_contact.py` 可定向复用。旧repair写入入口不用于现装维护，先按共用规范读取当前正式来源与收据，新修复创建独立候选/收据；不运行旧全量生成或恢复覆盖后续交付。
