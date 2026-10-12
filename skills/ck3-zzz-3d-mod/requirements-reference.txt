@@ -1,0 +1,2 @@
+# Python 3.10-3.12 numeric reference modules; no game/tool runtime is installed.
+numpy==1.26.4

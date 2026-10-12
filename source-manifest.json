@@ -1,134 +1,14 @@
 {
   "schema_version": 1,
-  "snapshot_at": "2026-10-12T16:39:03+08:00",
-  "source": "Codex user skills",
-  "file_count": 42,
+  "snapshot_at": "2026-10-12T17:20:28+08:00",
+  "source": "Repository-maintained skills and portable code references",
+  "file_count": 58,
   "skills": [
+    "ck3-portrait-camera",
     "ck3-zzz-3d-mod",
-    "ck3-zzz-portrait-mod",
-    "ck3-portrait-camera"
+    "ck3-zzz-portrait-mod"
   ],
   "files": [
-    {
-      "path": "skills/ck3-zzz-3d-mod/agents/openai.yaml",
-      "bytes": 355,
-      "sha256": "6036241ab2739592f206daed86f6de2de56229237083ffb0e2da2d4e7a742ec8"
-    },
-    {
-      "path": "skills/ck3-zzz-3d-mod/references/barbershop-native-idles.md",
-      "bytes": 8193,
-      "sha256": "831018a17bd2bf36e24208f9ab8dcbaa7e257634062713c5fb23e372ec9059f8"
-    },
-    {
-      "path": "skills/ck3-zzz-3d-mod/references/build-and-compatibility.md",
-      "bytes": 8915,
-      "sha256": "0f1d6580294205647ede4e0c33112da75438e2009dd325797e96e119956a434c"
-    },
-    {
-      "path": "skills/ck3-zzz-3d-mod/references/ck3-120-camera-and-props.md",
-      "bytes": 3902,
-      "sha256": "40d5111837174655a79d66cb52da11a8ef0e949ab9d131da35e6ce80ccce4e3f"
-    },
-    {
-      "path": "skills/ck3-zzz-3d-mod/references/court-animation-and-grounding.md",
-      "bytes": 8543,
-      "sha256": "ec0ca78969b3ab44cf0ad77bbd606baafb6bb457c674bf6074432461d0507a3b"
-    },
-    {
-      "path": "skills/ck3-zzz-3d-mod/references/mount-contact-and-framing.md",
-      "bytes": 7119,
-      "sha256": "b3e3f1213b4ceddfd4b6d8772967cfb34e3632824e4472c8bedaecaec5256c49"
-    },
-    {
-      "path": "skills/ck3-zzz-3d-mod/references/native-pipeline.md",
-      "bytes": 9647,
-      "sha256": "ce520aeaba4e99496ad310d2f523cc5c8d3f28069c06580444e97fedc2580887"
-    },
-    {
-      "path": "skills/ck3-zzz-3d-mod/references/new-pack-production.md",
-      "bytes": 8075,
-      "sha256": "f55bce4146f9a8f7cfebec5187901599cbc48d3bdd3d14e82419d9c4ebd2e117"
-    },
-    {
-      "path": "skills/ck3-zzz-3d-mod/references/pack-template-adaptation.md",
-      "bytes": 4955,
-      "sha256": "7042ed2129f828eb5269ccf47926455113d36e1a1ab6e73ddbc79fe6ddc20eef"
-    },
-    {
-      "path": "skills/ck3-zzz-3d-mod/references/portrait-assembly-and-skins.md",
-      "bytes": 6940,
-      "sha256": "2fe220b64ae95e6fcfb426b360cbdb0c780edee7d66329e2cb0e1cab341357ef"
-    },
-    {
-      "path": "skills/ck3-zzz-3d-mod/references/portrait-display-and-death.md",
-      "bytes": 7197,
-      "sha256": "d4029574fd413604662b92cc95d25100e3bfb960f92d606e72d74ebeedc865d3"
-    },
-    {
-      "path": "skills/ck3-zzz-3d-mod/references/portrait-routing-and-validation.md",
-      "bytes": 2362,
-      "sha256": "ed7a872379bb18913d8e7e3a00e581c83b8d41251412de4f4bfb06c574d3f814"
-    },
-    {
-      "path": "skills/ck3-zzz-3d-mod/references/retarget-and-blink.md",
-      "bytes": 17820,
-      "sha256": "204e93c0a3180c33d6a2d9a8bd3f1f8ded3eead52c7039def12fa5e74ffc3c81"
-    },
-    {
-      "path": "skills/ck3-zzz-3d-mod/references/rui-optional-compatibility.md",
-      "bytes": 8185,
-      "sha256": "6a9270c7b1cc05f63880a689431a24179fc8fe3efdab81b5f03285b063a0d47f"
-    },
-    {
-      "path": "skills/ck3-zzz-3d-mod/references/saint-halo.md",
-      "bytes": 6467,
-      "sha256": "817ffcecf1c395c3cf4104278f43637eeb40842a835ed068e61b079c7f06326b"
-    },
-    {
-      "path": "skills/ck3-zzz-3d-mod/references/storage.md",
-      "bytes": 6829,
-      "sha256": "b42e05768f6180d78e4988c0647979dce954bdeb2b0588c9ad63f65016d9e9dd"
-    },
-    {
-      "path": "skills/ck3-zzz-3d-mod/references/vanilla-portrait-morphs.md",
-      "bytes": 6914,
-      "sha256": "36d4c9adc41227143d1aca1bb7990913cf9b744d8950f9c8bcbbf97ac8bb34f1"
-    },
-    {
-      "path": "skills/ck3-zzz-3d-mod/references/zzz-core-pack4-workflow.md",
-      "bytes": 21118,
-      "sha256": "fc413c0c80c6ffc3486d35aa973cb05194998cb4d5efb3dd422453074275970c"
-    },
-    {
-      "path": "skills/ck3-zzz-3d-mod/SKILL.md",
-      "bytes": 17357,
-      "sha256": "2d10428ad55c81680c0595c3112753da9005f39dec4246d605ebdb1e45f01b58"
-    },
-    {
-      "path": "skills/ck3-zzz-portrait-mod/agents/openai.yaml",
-      "bytes": 348,
-      "sha256": "15c9afcc37887c6e19cf9d1bf83507832b258e5a214841298a2ac9d4c017ff32"
-    },
-    {
-      "path": "skills/ck3-zzz-portrait-mod/references/build-and-registration.md",
-      "bytes": 7586,
-      "sha256": "382a409b9723e67546ac03dc5db2a40226962d8d6f87bfe92f894d43688d8b19"
-    },
-    {
-      "path": "skills/ck3-zzz-portrait-mod/references/content-and-compatibility.md",
-      "bytes": 6609,
-      "sha256": "dc99d7cc5ccd6d2fb9980aab4f48420a624e273025e78788f6675eb179f555f8"
-    },
-    {
-      "path": "skills/ck3-zzz-portrait-mod/references/paper-rendering-and-tuning.md",
-      "bytes": 4849,
-      "sha256": "e8f603c39aac8b09625df4fe3379c72e3568f9ed2852501dcd62e8efa6d10ed5"
-    },
-    {
-      "path": "skills/ck3-zzz-portrait-mod/SKILL.md",
-      "bytes": 4528,
-      "sha256": "ed7d2431916ff7af1030af48bd0e76b75d49b863f1fb58477f1e2bf2cbfdf955"
-    },
     {
       "path": "skills/ck3-portrait-camera/agents/openai.yaml",
       "bytes": 370,
@@ -191,8 +71,8 @@
     },
     {
       "path": "skills/ck3-portrait-camera/SKILL.md",
-      "bytes": 6086,
-      "sha256": "3de313c29db23932b80ee85424fbd737c26d450e4406ae98cf1183d951db510a"
+      "bytes": 6376,
+      "sha256": "0c1041026d966533f17e15eca757520b7d724ec6e4517e5093fa3b86cb144261"
     },
     {
       "path": "skills/ck3-portrait-camera/tests/behavior_scenarios.json",
@@ -218,6 +98,207 @@
       "path": "skills/ck3-portrait-camera/tests/test_camera_chain.py",
       "bytes": 4957,
       "sha256": "56efa5f5308a0be88146c231480a3809831287c891b6c05157d870ff45bdbe79"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/agents/openai.yaml",
+      "bytes": 355,
+      "sha256": "6036241ab2739592f206daed86f6de2de56229237083ffb0e2da2d4e7a742ec8"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/examples/reference_walkthrough.py",
+      "bytes": 2022,
+      "sha256": "84cabb4373d5bc0475a566677d8a5b4020c7bd621b945aabc96b8802a6d29836"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/references/barbershop-native-idles.md",
+      "bytes": 8193,
+      "sha256": "831018a17bd2bf36e24208f9ab8dcbaa7e257634062713c5fb23e372ec9059f8"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/references/build-and-compatibility.md",
+      "bytes": 8915,
+      "sha256": "0f1d6580294205647ede4e0c33112da75438e2009dd325797e96e119956a434c"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/references/ck3-120-camera-and-props.md",
+      "bytes": 3902,
+      "sha256": "40d5111837174655a79d66cb52da11a8ef0e949ab9d131da35e6ce80ccce4e3f"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/references/code-reference-inputs.md",
+      "bytes": 5516,
+      "sha256": "13b509a168815147aca42640efe40578880fa83d1ced534e34b2dcfec6361d9e"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/references/code-reference-sources.md",
+      "bytes": 3156,
+      "sha256": "73ae7375de24611609e0f4564ea893905a57ecb87ea0a8fffd3fccabac83463e"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/references/code-reference-validation.md",
+      "bytes": 2366,
+      "sha256": "b6d07088f6b4192acc6051176125d609f641c67c856f9c7d357a93704dbb5628"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/references/code-reference-workflow.md",
+      "bytes": 4848,
+      "sha256": "a2614377eb7768f6c0fa46321a0f3a53ab23856190ee4052c4199613b1bdc109"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/references/code-reference.md",
+      "bytes": 3656,
+      "sha256": "78bbabc18826d6a87cbf1df79ac62036d8ecb1a0139af22db6b530e7e75beb9d"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/references/court-animation-and-grounding.md",
+      "bytes": 8543,
+      "sha256": "ec0ca78969b3ab44cf0ad77bbd606baafb6bb457c674bf6074432461d0507a3b"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/references/mount-contact-and-framing.md",
+      "bytes": 7119,
+      "sha256": "b3e3f1213b4ceddfd4b6d8772967cfb34e3632824e4472c8bedaecaec5256c49"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/references/native-pipeline.md",
+      "bytes": 9647,
+      "sha256": "ce520aeaba4e99496ad310d2f523cc5c8d3f28069c06580444e97fedc2580887"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/references/new-pack-production.md",
+      "bytes": 8075,
+      "sha256": "f55bce4146f9a8f7cfebec5187901599cbc48d3bdd3d14e82419d9c4ebd2e117"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/references/pack-template-adaptation.md",
+      "bytes": 4955,
+      "sha256": "7042ed2129f828eb5269ccf47926455113d36e1a1ab6e73ddbc79fe6ddc20eef"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/references/portrait-assembly-and-skins.md",
+      "bytes": 6940,
+      "sha256": "2fe220b64ae95e6fcfb426b360cbdb0c780edee7d66329e2cb0e1cab341357ef"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/references/portrait-display-and-death.md",
+      "bytes": 7197,
+      "sha256": "d4029574fd413604662b92cc95d25100e3bfb960f92d606e72d74ebeedc865d3"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/references/portrait-routing-and-validation.md",
+      "bytes": 2362,
+      "sha256": "ed7a872379bb18913d8e7e3a00e581c83b8d41251412de4f4bfb06c574d3f814"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/references/retarget-and-blink.md",
+      "bytes": 17820,
+      "sha256": "204e93c0a3180c33d6a2d9a8bd3f1f8ded3eead52c7039def12fa5e74ffc3c81"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/references/rui-optional-compatibility.md",
+      "bytes": 8185,
+      "sha256": "6a9270c7b1cc05f63880a689431a24179fc8fe3efdab81b5f03285b063a0d47f"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/references/saint-halo.md",
+      "bytes": 6467,
+      "sha256": "817ffcecf1c395c3cf4104278f43637eeb40842a835ed068e61b079c7f06326b"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/references/standalone-core-reference.md",
+      "bytes": 1874,
+      "sha256": "b2f3382e5d6a42df9dbc3d7d58f04ea7d14571c056d1b8e4ef871b0aebb4125b"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/references/storage.md",
+      "bytes": 6829,
+      "sha256": "b42e05768f6180d78e4988c0647979dce954bdeb2b0588c9ad63f65016d9e9dd"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/references/vanilla-portrait-morphs.md",
+      "bytes": 6914,
+      "sha256": "36d4c9adc41227143d1aca1bb7990913cf9b744d8950f9c8bcbbf97ac8bb34f1"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/references/zzz-core-pack4-workflow.md",
+      "bytes": 21118,
+      "sha256": "fc413c0c80c6ffc3486d35aa973cb05194998cb4d5efb3dd422453074275970c"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/requirements-reference.txt",
+      "bytes": 95,
+      "sha256": "2f3d12254a8a4ba69792e3ac47f48454f30f37704dc7e6aa922259aeb23bbdd6"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/scripts/zzz_reference/__init__.py",
+      "bytes": 83,
+      "sha256": "ebffb1acbbac03bab446bd0c63871b8161ea74f0fc095136a58aef0d2b27041a"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/scripts/zzz_reference/animation.py",
+      "bytes": 5017,
+      "sha256": "00dbbea17e28e5e2f5f4665fd9afd2e88db205e2303a891d46cc1e455be5f86d"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/scripts/zzz_reference/assembly.py",
+      "bytes": 2675,
+      "sha256": "a68e8d0674c5fe40badb7ef0f3fa95878a9f58a5cd9f4c417be81373e11a2ba0"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/scripts/zzz_reference/conversion.py",
+      "bytes": 4440,
+      "sha256": "47922797d309e783114943c7a2032ec497d7b5f777f3853ee13ba87810b374e8"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/scripts/zzz_reference/retarget.py",
+      "bytes": 3854,
+      "sha256": "7c1ecd0e0395853b02fbe6a6f1fef928f8b2ddf785eec808883435ff9bf9cc18"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/scripts/zzz_reference/validation.py",
+      "bytes": 4077,
+      "sha256": "be51d8e96c82c079612a198a596b5d09779c9efc0047e9465db945d3d0c954ea"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/SKILL.md",
+      "bytes": 17933,
+      "sha256": "67fe676427eaf7d0473e94f4ee345faf99ca470278c947e9725c0faf73c69b73"
+    },
+    {
+      "path": "skills/ck3-zzz-3d-mod/tests/test_code_reference.py",
+      "bytes": 11546,
+      "sha256": "18f5df33c0cdbda7f4c622d8be8885b3ae6eac2a4cd0bfd35f08a9e353b0725c"
+    },
+    {
+      "path": "skills/ck3-zzz-portrait-mod/agents/openai.yaml",
+      "bytes": 348,
+      "sha256": "15c9afcc37887c6e19cf9d1bf83507832b258e5a214841298a2ac9d4c017ff32"
+    },
+    {
+      "path": "skills/ck3-zzz-portrait-mod/references/build-and-registration.md",
+      "bytes": 7586,
+      "sha256": "382a409b9723e67546ac03dc5db2a40226962d8d6f87bfe92f894d43688d8b19"
+    },
+    {
+      "path": "skills/ck3-zzz-portrait-mod/references/content-and-compatibility.md",
+      "bytes": 6609,
+      "sha256": "dc99d7cc5ccd6d2fb9980aab4f48420a624e273025e78788f6675eb179f555f8"
+    },
+    {
+      "path": "skills/ck3-zzz-portrait-mod/references/paper-rendering-and-tuning.md",
+      "bytes": 4849,
+      "sha256": "e8f603c39aac8b09625df4fe3379c72e3568f9ed2852501dcd62e8efa6d10ed5"
+    },
+    {
+      "path": "skills/ck3-zzz-portrait-mod/references/role-code-reference.md",
+      "bytes": 1836,
+      "sha256": "178475c05bae274c0a57378a3e6faadfbb447782cd3da8828462e91a5f40eb77"
+    },
+    {
+      "path": "skills/ck3-zzz-portrait-mod/SKILL.md",
+      "bytes": 4937,
+      "sha256": "40320a9f08b860c31af65ec4ae5e5bc361cbc8668e60bf00938543c3290f3835"
     }
-  ]
+  ],
+  "base_local_snapshot_at": "2026-10-12T16:39:03+08:00"
 }
